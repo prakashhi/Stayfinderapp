@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.name {
+    margin: 20px;
+}
+
+.container {
+    background-color: #f6f6f9;
+    display: flex;
+
+}
+
+
+.left {
+
+
+    height: 100vh;
+    box-shadow: 0 0.5rem 1rem #acacac;
+    margin: 10px;
+    border-radius: 20px;
+    position: absolute;
+    width: 50vh;
+    left: -1000%;
+    z-index: 1;
+    transition: all 0.5s;
+    background-color: whitesmoke;
+
+}
+
+.right {
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0.5rem 1rem #D4D4D4;
+}
+
+.logo p,
+.logo {
+
+    align-items: center;
+    display: flex;
+    white-space: 20px;
+
+
+}
+
+.logo img {
+
+    width: 60px;
+    border-radius: 10px;
+    margin: 20px;
+
+}
+
+.menu {
+    margin: 15px;
+    list-style-type: none;
+}
+
+.menu li {
+    color: #8d8c93;
+    font-size: 20px;
+    margin: 20px auto;
+
+}
+
+i {
+    margin-right: 3px;
+}
+
+.img_icon {
+    width: 20px;
+}
+
+.menu li:hover {
+    background-color: #D4D4D4;
+    color: #4B6DED;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 21px;
+    transition: all 0.5s ease;
+}
+
+
+.right {
+    border-radius: 20px;
+    margin: 5px;
+    box-shadow: 0 0.5rem 1rem #acacac;
+
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.h-div {
+    display: flex;
+    gap: 8px;
+}
+
+.navbar {
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.uname {
+    margin-right: 20px;
+    gap: 10px;
+    display: flex;
+}
+
+.close {
+    width: 20px;
+    padding: 10px;
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    * {
+        transition-duration: 0.5s;
+    }
+
+    .navbar {
+
+        font-size: 10px;
+    }
+    .close
+    {
+        width: 20px;
+        cursor: pointer;
+    }
+    .logo img
+    {
+        width: 50px;
+    }
+
+    .left {
+        width: 40vh;
+
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .navbar {
+        transition-duration: 0.5s;
+        font-size: 8px;
+    }
+}
