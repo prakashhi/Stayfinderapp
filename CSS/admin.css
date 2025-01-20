@@ -24,7 +24,7 @@ body::before {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG9mZmljZSUyMGFkbWlufGVufDB8fDB8fHww");
+    background: url("../Images/photo-1519389950473-47ba0277781c.jpg");
     background-position: center;
     background-size: cover;
 }
