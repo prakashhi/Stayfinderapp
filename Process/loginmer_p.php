@@ -20,6 +20,9 @@ if ($no == 1) {
         $_SESSION['mname'] = $name;
         header("location:../merchant_dash.php");
     }
+    else{
+        header("location:../merchant_l.php?login=no");
+    }
 } else {
     header("location:../merchant_l.php?login=no");
 }

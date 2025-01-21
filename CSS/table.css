@@ -20,6 +20,10 @@
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+#opt
+{
+    text-align: center;
+}
 
 .stc {
     width: 100%;
@@ -32,9 +36,10 @@
 }
 
 .scbtn {
+    padding: 6px;
     cursor: pointer;
     width: 20%;
-    background: #7bc432;
+    background: #9396a4;
     border-radius: 10px;
     font-weight: bold;
 }

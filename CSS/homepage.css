@@ -16,7 +16,6 @@
 
 nav {
   display: flex;
-  /* background-color: bisque; */
   padding: 10px;
   color: black;
   align-items: center;
@@ -51,7 +50,7 @@ ul li:hover {
 
 a {
   text-decoration: none;
-  
+
 }
 
 @media screen and (max-width: 400px) {
@@ -66,6 +65,42 @@ a {
   .log p {
     display: none;
   }
+}
+
+.serchnav {
+  background: aliceblue;
+  padding: 10px;
+
+  border-radius: 10px;
+}
+
+.serchnav form {
+  display: grid;
+  gap: 10px;
+}
+
+.serchnav span,
+button {
+  display: flex;
+
+
+}
+
+.serchnav button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #6e61b5;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+}
+
+.serchnav input {
+  
+  padding: 10px;
 }
 
 

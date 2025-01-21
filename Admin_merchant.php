@@ -16,9 +16,7 @@
     <div class="container">
         <div class="left">
             <div class="close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="closebtn"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                </svg>
+                <img src="./Images/close.svg" alt="" srcset="" class="closebtn">
             </div>
 
             <div class="logo">
@@ -50,7 +48,7 @@
         <div class="right">
             <div class="navbar">
                 <h1 class="name">
-                    <i class="fa-solid fa-bars" id="hambtn"></i>Admin dashboard
+                     <img src="./Images/ham.svg" alt="" srcset="" id="hambtn">Admin dashboard
                 </h1>
                 <h2 class="uname">
                     <?php
@@ -73,6 +71,11 @@
                 <div class="search">
 
                     <input class="stc" type="text" name="serch">
+                    <select name="type" id="opt" >
+                        <option value="Uc_id">Id</option>
+                        <option value="Username">Username</option>
+                        <option value="Email">Email</option>
+                    </select>
                     <button class="scbtn" name="serchbtn">Search</button>
 
                 </div>
@@ -87,9 +90,11 @@
 
                 include './Process/cnn.php';
 
+                $name=$_POST['type'];
+
                 $i= $_POST['serch'];
 
-                $dv = mysqli_query($cnn,"Select * from c_register where Uc_id ='$i'");
+                $dv = mysqli_query($cnn,"Select * from c_register where $name ='$i'");
 
                 if(mysqli_num_rows($dv) ==  0)
                 {
@@ -106,7 +111,7 @@
                     echo "<p><strong>U_id :</strong><span class='email'>" . $d['Uc_id'] . "</span></p>";
                     echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
                     echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                    echo "<p><strong>Hotel_id :</strong><span>" . $d['Mobile_no'] . "</span></p>";
+                    echo "<p><strong>Mobile_no :</strong><span>" . $d['Mobile_no'] . "</span></p>";
                     echo "</div>";
                 }
                
@@ -127,7 +132,7 @@
                 echo "<p><strong>U_id :</strong><span class='email'>" . $d['Uc_id'] . "</span></p>";
                 echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
                 echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                echo "<p><strong>Hotel_id :</strong><span>" . $d['Mobile_no'] . "</span></p>";
+                echo "<p><strong>Mobile_no  :</strong><span>" . $d['Mobile_no'] . "</span></p>";
                 echo "</div>";
             }
             }

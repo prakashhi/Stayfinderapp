@@ -23,6 +23,10 @@ $no = mysqli_num_rows($li);
             $_SESSION['name']=$name;
             header("location:../index.php");
         }  
+        else
+        {
+            header("location:../login.php?login=no");
+        }
        
         
     }
