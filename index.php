@@ -17,7 +17,7 @@
     <nav>
       <div class="log">
         <img src="Images/Stay Finder-logos.jpeg" alt="" width="40px" style="border-radius: 10px;">
-        <p>Stay Finder</p>
+        <b>Stay Finder</b>
       </div>
       <div class="m">
         <ul>
@@ -31,7 +31,6 @@
             echo "<a href='login.php'><li>Log in</li></a>";
           }
           ?>
-
           <li>About us</li>
         </ul>
       </div>
@@ -44,202 +43,38 @@
         <button>Search</button>
       </form>
     </div>
-    <div class="o">
-      <div class="wrapper">
+
+    <div class='con'>
+      <div class='imgcon'>
+        <img src='https://r1imghtlak.mmtcdn.com/eb83a2f46f9611e78f69025f77df004f.jpg?output-quality=75&downsize=243:162&output-format=jpg'>
+      </div>
+      <div class='datcon'>
+        <span class='h_name'>The Fern Residency, Gandhinagar</span>
+        <span class='h_address'>Sargaasan, Gandhinagar</span>
+        <span class='h_price'>₹ 30,535</span>
 
 
-
-        <div class="cards">
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 320px)" srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(min-width: 538px)" srcset="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
-
-                <img src="https://images.unsplash.com/photo-1530629013299-6cb10d168419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=1500">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="cozyroom">Cozying Room</h3>
-              <div class="address">St.lorem ipsum des</div>
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 1500K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@jazzband</span>
-          </div>
-
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 400px)" srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(min-width: 481px)" srcset="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-
-
-                <img src="https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="tomato">House sweet</h3>
-              <div class="address">Gandaria</div>
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 950K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@antocave</span>
-          </div>
-
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 400px)" srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(min-width: 481px)" srcset="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                <img src="https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="cozyroom">Makau Homestay</h3>
-              <div class="address">Cipete</div>
-
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 2500K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@sidekix</span>
-          </div>
-
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 320px)" srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(max-width: 500px)" srcset="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=200&q=100">
-
-                <img src="https://images.unsplash.com/photo-1545022388-9e6d95c77174?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=200&q=80">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="cozyroom">Bogor Cozy Homestay</h3>
-              <div class="address">Bogor</div>
-
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 2500K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@josesorianophoto</span>
-          </div>
-
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 320px)" srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(max-width: 500px)" srcset="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=200&q=80">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="cozyroom">Tribeca BedMy</h3>
-              <div class="address">Jakarta</div>
-
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 750K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@chastityco</span>
-          </div>
-
-          <div class="card">
-            <div class="card__img">
-              <picture>
-                <source media="(max-width: 320px)" srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=335&h=200&q=80">
-
-                <source media="(max-width: 500px)" srcset="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=100">
-
-                <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=200&q=80">
-              </picture>
-            </div>
-            <div class="card__details">
-              <h3 for="cozyroom">Les't Carrot</h3>
-              <div class="address">Bandung</div>
-
-              <div class="price">
-                <div class="star">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                  <img src="https://image.flaticon.com/icons/svg/291/291205.svg" alt="">
-                </div>
-                <div class="price__l">
-                  <span class="price__label">IDR 1750K /</span>
-                  <span class="measure__label">night</span>
-                </div>
-              </div>
-              <button>Detail</button>
-            </div>
-            <span class="credit-img">image by: unsplash.com/@ialicantemediterraneanhomes</span>
-          </div>
-
-
-        </div>
       </div>
 
+
     </div>
+    <div class='con'>
+      <div class='imgcon'>
+        <img src='https://r1imghtlak.mmtcdn.com/eb83a2f46f9611e78f69025f77df004f.jpg?output-quality=75&downsize=243:162&output-format=jpg'>
+      </div>
+      <div class='datcon'>
+        <span class='h_name'>The Fern Residency, Gandhinagar</span>
+        <span class='h_address'>Sargaasan, Gandhinagar</span>
+        <span class='h_price'>₹ 30,535</span>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
 
   </div>
 </body>
