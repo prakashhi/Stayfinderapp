@@ -24,6 +24,10 @@ $no = mysqli_num_rows($li);
             $_SESSION['adminname']=$name;
             header("location:../Admin_dash.php");
         }  
+		else{
+			header("location:../Admin.php?login=no");
+			
+		}
        
         
     }

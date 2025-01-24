@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,14 +29,12 @@
 
                 <a href="./Admin_dash.php">
                     <li>
-                        <i class="fa-solid fa-house"></i>
-                        Merchant list
+                        Merchant List
                     </li>
                 </a>
-                <a href="#">
+                <a href="./Admin_merchant.php">
                     <li>
-                        <i class="fa-solid fa-house"></i>
-                        Customer list
+                        Customer List
                     </li>
                 </a>
 
@@ -48,7 +45,9 @@
         <div class="right">
             <div class="navbar">
                 <h1 class="name">
-                     <img src="./Images/ham.svg" alt="" srcset="" id="hambtn">Admin dashboard
+                    <img src="./Images/ham.svg" alt="" srcset="" id="hambtn">
+                    <span>Dashboard</span>
+
                 </h1>
                 <h2 class="uname">
                     <?php
@@ -63,15 +62,12 @@
                 </h2>
             </div>
 
-            <div class="hed">
-                <h2>Customer list</h2>
-            </div>
-            
+
             <form method="POST">
                 <div class="search">
 
-                    <input class="stc" type="text" name="serch">
-                    <select name="type" id="opt" >
+                    <input class="stc" type="text" name="serch" placeholder="Search...">
+                    <select name="type" id="opt">
                         <option value="Uc_id">Id</option>
                         <option value="Username">Username</option>
                         <option value="Email">Email</option>
@@ -84,57 +80,96 @@
 
             <?php
             include './Process/cnn.php';
-            
+
             function serchdata()
             {
 
                 include './Process/cnn.php';
 
-                $name=$_POST['type'];
+                $name = $_POST['type'];
 
-                $i= $_POST['serch'];
+                $i = $_POST['serch'];
 
-                $dv = mysqli_query($cnn,"Select * from c_register where $name ='$i'");
+                $dv = mysqli_query($cnn, "Select * from c_register where $name ='$i'");
 
-                if(mysqli_num_rows($dv) ==  0)
-                {
-                    echo "<div class='container23'>";
-                    echo  "<div class='card'>";
-                    echo "<p><strong></strong><span class='email'>Not Found</span></p>";
-                    echo "</div>";
+                if (mysqli_num_rows($dv) ==  0) {
+                    echo "<div class='table-container'>
+                <h1>Merchnat Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>U_id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Mobile_no</th>
+                            </tr>
+                            
+                        </thead>
+                        <tbody>
+                                <tr>
+                                <td>Not found</td>
+                                </tr>
+                        </tbody>
+                    </table>";
+                } else {
+                    echo "<div class='table-container'>
+                <h1>Merchnat Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>U_id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Mobile_no</th>
+                            </tr>
+                        </thead>";
+
+                    while ($d = mysqli_fetch_assoc($dv)) {
+                        echo "<tbody>
+                    <tr>
+                        <td>" . $d['Uc_id'] . "</td>
+                        <td>" . $d['Username'] . "</td>
+                        <td>" . $d['Email'] . "</td>
+                        <td>" . $d['Mobile_no'] . "</td>
+                    </tr>
+                </tbody>";
+                    }
+                    echo "</table></div>";
                 }
-
-                while ($d = mysqli_fetch_assoc($dv)) {
-
-                    echo "<div class='container23'>";
-                    echo  "<div class='card'>";
-                    echo "<p><strong>U_id :</strong><span class='email'>" . $d['Uc_id'] . "</span></p>";
-                    echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
-                    echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                    echo "<p><strong>Mobile_no :</strong><span>" . $d['Mobile_no'] . "</span></p>";
-                    echo "</div>";
-                }
-               
-
             }
+
             if (array_key_exists('serchbtn', $_POST)) {
 
                 serchdata();
-            }
-          
-            else{
-                  $data  = mysqli_query($cnn, "Select * from  c_register");
+            } else {
 
-            while ($d = mysqli_fetch_assoc($data)) {
 
-                echo "<div class='container23'>";
-                echo  "<div class='card'>";
-                echo "<p><strong>U_id :</strong><span class='email'>" . $d['Uc_id'] . "</span></p>";
-                echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
-                echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                echo "<p><strong>Mobile_no  :</strong><span>" . $d['Mobile_no'] . "</span></p>";
-                echo "</div>";
-            }
+                $data  = mysqli_query($cnn, "Select * from  c_register");
+
+
+                echo "<div class='table-container'>
+                <h1>Customer Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>U_id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Mobile_no</th>
+                            </tr>
+                        </thead>";
+
+                while ($d = mysqli_fetch_assoc($data)) {
+                    echo "<tbody>
+                    <tr>
+                        <td>" . $d['Uc_id'] . "</td>
+                        <td>" . $d['Username'] . "</td>
+                        <td>" . $d['Email'] . "</td>
+                        <td>" . $d['Mobile_no'] . "</td>
+                    </tr>
+                </tbody>";
+                }
+                echo "</table></div>";
             }
 
 

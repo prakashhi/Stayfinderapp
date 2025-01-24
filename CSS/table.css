@@ -1,81 +1,218 @@
+/* Table Container */
+.table-container {
+  margin: 10px;
+  max-width: 1200px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  cursor: pointer;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #6c5ce7;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Table cells */
+th,
+td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Table Header */
+th {
+  background-color: #6c5ce7;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Hover effect for rows */
+tr:hover {
+  background-color: #f0f4fc;
+  transform: translateX(5px);
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Modern Look - Add subtle hover animation */
+tbody tr:hover td {
+  background-color: #f0f4fc;
+  color: #6c5ce7;
+  transform: scale(1.05);
+}
+
+/* Adding Shadow Effect */
+table {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  th {
+    background-color: #6c5ce7;
+    color: white;
+    text-align: center;
+  }
+
+  td {
+    border: none;
+    padding: 12px 10px;
+    text-align: left;
+    position: relative;
+    padding-left: 40%;
+    font-size: 1rem;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: #6c5ce7;
+  }
+
+  th,
+  td {
+    padding: 12px 15px;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
 .container23 {
-    height: 40vw;
-    overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  height: 40vw;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-#opt
-{
-    text-align: center;
+
+#opt {
+  text-align: center;
+  border: none;
+  border-radius: 5px;
 }
 
 .stc {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 9px;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: none;
 }
-.hed
-{
-    margin: 10px;
+
+.hed {
+  margin: 10px;
 }
 
 .scbtn {
-    padding: 6px;
-    cursor: pointer;
-    width: 20%;
-    background: #9396a4;
-    border-radius: 10px;
-    font-weight: bold;
+  padding: 6px;
+  cursor: pointer;
+  width: 20%;
+  background: #8176d7;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  color: white;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .search {
-    gap: 20px;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .card h2 {
-    margin: 0 0 10px;
-    color: #333;
-    font-size: 1.5em;
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 1.5em;
 }
 
 .card p {
-    margin: 5px 0;
-    color: #666;
-    font-size: 1em;
+  margin: 5px 0;
+  color: #666;
+  font-size: 1em;
 }
 
 .card .email {
-    color: #007bff;
-    font-weight: bold;
+  color: #007bff;
+  font-weight: bold;
 }
 
 .card .address {
-    font-style: italic;
-    color: #555;
+  font-style: italic;
+  color: #555;
 }
+
 @media only screen and (max-width: 480px) {
-    .container23 {
-        height: 70vw;
-      
-    }
-   
+  .container23 {
+    height: 70vw;
+
+  }
+
 }

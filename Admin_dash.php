@@ -19,7 +19,7 @@
             </div>
 
             <div class="logo">
-            
+
                 <img src="Images/Stay Finder-logos.jpeg" alt="">
                 <p><b>Stay finder</b>
                 </p>
@@ -29,14 +29,13 @@
 
                 <a href="#">
                     <li>
-                    
-                        Merchant list
+
+                        Merchnat List
                     </li>
                 </a>
                 <a href="./Admin_merchant.php">
                     <li>
-                       
-                        Customer list
+                        Customer List
                     </li>
                 </a>
 
@@ -46,7 +45,10 @@
 
         <div class="right">
             <div class="navbar">
-                <h1 class="name"><img src="./Images/ham.svg" id="hambtn"> dashboard</h1>
+                <h1 class="name">
+                    <img src="./Images/ham.svg" id="hambtn">
+                    <span>Dashboard</span>
+                </h1>
                 <h2 class="uname">
                     <?php
                     session_start();
@@ -59,13 +61,11 @@
                     ?>
                 </h2>
             </div>
-            <div class="hed">
-                <h2>Merchant list</h2>
-            </div>
+
             <form method="POST">
                 <div class="search">
-                    <input class="stc" type="text" name="serch">
-                    <select name="type" id="opt" >
+                    <input class="stc" type="text" name="serch" placeholder="Search...">
+                    <select name="type" id="opt">
                         <option value="Um_id">Id</option>
                         <option value="Username">Username</option>
                         <option value="Email">Email</option>
@@ -84,74 +84,109 @@
 
                 include './Process/cnn.php';
 
-                $name=$_POST['type'];
-              
+                $name = $_POST['type'];
+
                 $i = $_POST['serch'];
 
                 $dv = mysqli_query($cnn, "Select * from m_register where  $name ='$i'");
 
                 if (mysqli_num_rows($dv) ==  0) {
-                    echo "<div class='container23'>";
-                    echo  "<div class='card'>";
-                    echo "<p><strong></strong><span class='email'>Not Found</span></p>";
-                    echo "</div>";
-                }
-
-                while ($d = mysqli_fetch_assoc($dv)) {
-
-                    echo "<div class='container23'>";
-                    echo  "<div class='card'>";
-                    echo "<p><strong>U_id :</strong><span class='email'>" . $d['Um_id'] . "</span></p>";
-                    echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
-                    echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                    echo "<p><strong>Hotel_id :</strong><span>" . $d['Hotel_id'] . "</span></p>";
-                    echo "<p><strong>Hotel_Name :</strong><span>" . $d['Hotel_Name'] . "</span></p>";
-                    echo "<p><strong>Hotel_Address :</strong><span>" . $d['Hotel_Address'] . "</span></p>";
-                    echo "<p><strong>Hotel_Mobileno :</strong><span>" . $d['Hotel_Mobileno'] . "</span></p>";
-                    echo "<p><strong>Hotel_Bname :</strong><span>" . $d['Hotel_Bname'] . "</span></p>";
-                    echo "<p><strong>Hotel_AccountNo :</strong><span>" . $d['Hotel_AccountNo'] . "</span></p>";
-                    echo "<p><strong>Hotel_IFSCcode :</strong><span>" . $d['Hotel_IFSCcode'] . "</span></p>";
-                    $id =  $d['Um_id'];
-                    echo "<a href='./merchant_process/merchant_delete.php?id=$id'><button class='scbtn'>Delete</button></a>";
-
-                    echo "</div>";
+                    echo "<div class='table-container'>
+                    <h1>Merchnat Table</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>U_id</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Mobile_no</th>
+                                </tr>
+                                
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                    <td>Not found</td>
+                                    </tr>
+                            </tbody>
+                        </table>";
+                } else {
+                    echo "<div class='table-container'>
+                <h1>Merchnat Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>U_id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Hotel_id</th>
+                                <th>Hotel_Name</th>
+                                <th>Hotel_Address</th>
+                                <th>Hotel_Mobileno</th>
+                            </tr>
+                        </thead>";
+                    while ($d = mysqli_fetch_assoc($dv)) {
+                        echo "<tbody>
+                    <tr>
+                        <td>" . $d['Um_id'] . "</td>
+                        <td>" . $d['Username'] . "</td>
+                        <td>" . $d['Email'] . "</td>
+                        <td>" . $d['Hotel_id'] . "</td>
+                        <td>" . $d['Hotel_Name'] . "</td>
+                        <td>" . $d['Hotel_Address'] . "</td>
+                        <td>" . $d['Hotel_Mobileno'] . "</td>
+                    </tr>
+                </tbody>";
+                    }
+                    echo "</table></div>";
                 }
             }
+
             if (array_key_exists('serchbtn', $_POST)) {
-              
+
 
                 serchdata();
             } else {
 
                 $data  = mysqli_query($cnn, "Select * from  m_register");
 
+                echo "<div class='table-container'>
+                <h1>Modern Animated Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>U_id</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Hotel_id</th>
+                                <th>Hotel_Name</th>
+                                <th>Hotel_Address</th>
+                                <th>Hotel_Mobileno</th>
+                            </tr>
+                        </thead>";
                 while ($d = mysqli_fetch_assoc($data)) {
-
-                    echo "<div class='container23'>";
-                    echo  "<div class='card'>";
-                    echo "<p><strong>U_id :</strong><span class='email'>" . $d['Um_id'] . "</span></p>";
-                    echo "<p><strong>Username :</strong>" . $d['Username'] . "</p>";
-                    echo "<p><strong>Email :</strong><span class='address'>" . $d['Email'] . "</span></p>";
-                    echo "<p><strong>Hotel_id :</strong><span>" . $d['Hotel_id'] . "</span></p>";
-                    echo "<p><strong>Hotel_Name :</strong><span>" . $d['Hotel_Name'] . "</span></p>";
-                    echo "<p><strong>Hotel_Address :</strong><span>" . $d['Hotel_Address'] . "</span></p>";
-                    echo "<p><strong>Hotel_Mobileno :</strong><span>" . $d['Hotel_Mobileno'] . "</span></p>";
-                    echo "<p><strong>Hotel_Bname :</strong><span>" . $d['Hotel_Bname'] . "</span></p>";
-                    echo "<p><strong>Hotel_AccountNo :</strong><span>" . $d['Hotel_AccountNo'] . "</span></p>";
-                    echo "<p><strong>Hotel_IFSCcode :</strong><span>" . $d['Hotel_IFSCcode'] . "</span></p>";
-                    $id =  $d['Um_id'];
-                    echo "<a href='./merchant_process/merchant_delete.php?id=$id'><button class='scbtn'>Delete</button></a>";
-
-                    echo "</div>";
+                    echo "<tbody>
+                            <tr>
+                                <td>" . $d['Um_id'] . "</td>
+                                <td>" . $d['Username'] . "</td>
+                                <td>" . $d['Email'] . "</td>
+                                <td>" . $d['Hotel_id'] . "</td>
+                                <td>" . $d['Hotel_Name'] . "</td>
+                                <td>" . $d['Hotel_Address'] . "</td>
+                                <td>" . $d['Hotel_Mobileno'] . "</td>
+                            </tr>
+                        </tbody>";
                 }
             }
-
+            echo "</table></div>";
 
             ?>
 
 
 
+
+
         </div>
+
 
     </div>
     <script src="JS/merchant_dash.js"></script>
