@@ -17,7 +17,10 @@ $no = mysqli_num_rows($li);
 if ($no == 1) {
     if (password_verify($pass, $pass2)) {
         session_start();
+         $h = $r['Hotel_id'];
+
         $_SESSION['mname'] = $name;
+        $_SESSION['h_id'] = $h;
         header("location:../merchant_dash.php");
     }
     else{

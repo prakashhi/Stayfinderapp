@@ -1,13 +1,14 @@
 /* Table Container */
 .table-container {
+  overflow: auto;
   margin: 10px;
-  max-width: 1200px;
   background-color: white;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
   cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Header */
@@ -68,8 +69,16 @@ table {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+#data {
+  display: none;
+
+}
+
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
+  * {
+    transition-duration: 0.5s;
+  }
 
   table,
   thead,
@@ -86,6 +95,16 @@ table {
     color: white;
     text-align: center;
   }
+
+  #data {
+    display: inline;
+  }
+
+  #data2 {
+    display: none;
+  }
+
+
 
   td {
     border: none;
@@ -177,7 +196,7 @@ table {
   font-weight: bold;
   border: none;
   color: white;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .search {

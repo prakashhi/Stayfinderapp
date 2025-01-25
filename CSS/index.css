@@ -23,12 +23,10 @@
 
 
 .left {
-
-
     height: 100vh;
     box-shadow: 0 0.5rem 1rem #acacac;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     position: absolute;
     width: 50vh;
     left: -1000%;
@@ -94,8 +92,8 @@ i {
 
 
 .right {
-    border-radius: 20px;
-    margin: 5px;
+    border-radius: 5px;
+    margin: 4px;
     box-shadow: 0 0.5rem 1rem #acacac;
 
 }
@@ -154,6 +152,10 @@ a {
         width: 40vh;
 
     }
+    .right
+    {
+        height: auto;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -169,4 +171,9 @@ a {
     {
         font-size: 25px;
     }
+    .right
+    {
+        height: auto;
+    }
+   
 }

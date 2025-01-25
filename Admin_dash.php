@@ -114,7 +114,7 @@
                 <h1>Merchnat Table</h1>
                     <table>
                         <thead>
-                            <tr>
+                            <tr id ='data2'>
                                 <th>U_id</th>
                                 <th>Username</th>
                                 <th>Email</th>
@@ -127,13 +127,13 @@
                     while ($d = mysqli_fetch_assoc($dv)) {
                         echo "<tbody>
                     <tr>
-                        <td>" . $d['Um_id'] . "</td>
-                        <td>" . $d['Username'] . "</td>
-                        <td>" . $d['Email'] . "</td>
-                        <td>" . $d['Hotel_id'] . "</td>
-                        <td>" . $d['Hotel_Name'] . "</td>
-                        <td>" . $d['Hotel_Address'] . "</td>
-                        <td>" . $d['Hotel_Mobileno'] . "</td>
+                    <td><span id='data'>U_id : </span>" . $d['Um_id'] . "</td>
+                    <td><span id='data'>Username : </span>" . $d['Username'] . "</td>
+                    <td><span id='data'>Email : </span>" . $d['Email'] . "</td>
+                    <td><span id='data'>Hotel_id : </span>" . $d['Hotel_id'] . "</td>
+                    <td><span id='data'>Hotel_Name : </span>" . $d['Hotel_Name'] . "</td>
+                    <td><span id='data'>Hotel_Address : </span>" . $d['Hotel_Address'] . "</td>
+                    <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>
                     </tr>
                 </tbody>";
                     }
@@ -150,10 +150,10 @@
                 $data  = mysqli_query($cnn, "Select * from  m_register");
 
                 echo "<div class='table-container'>
-                <h1>Modern Animated Table</h1>
+                <h1>Merchnat Table</h1>
                     <table>
                         <thead>
-                            <tr>
+                            <tr id ='data2'>
                                 <th>U_id</th>
                                 <th>Username</th>
                                 <th>Email</th>
@@ -166,13 +166,13 @@
                 while ($d = mysqli_fetch_assoc($data)) {
                     echo "<tbody>
                             <tr>
-                                <td>" . $d['Um_id'] . "</td>
-                                <td>" . $d['Username'] . "</td>
-                                <td>" . $d['Email'] . "</td>
-                                <td>" . $d['Hotel_id'] . "</td>
-                                <td>" . $d['Hotel_Name'] . "</td>
-                                <td>" . $d['Hotel_Address'] . "</td>
-                                <td>" . $d['Hotel_Mobileno'] . "</td>
+                            <td><span id='data'>U_id : </span>" . $d['Um_id'] . "</td>
+                                <td><span id='data'>Username : </span>" . $d['Username'] . "</td>
+                                <td><span id='data'>Email : </span>" . $d['Email'] . "</td>
+                                <td><span id='data'>Hotel_id : </span>" . $d['Hotel_id'] . "</td>
+                                <td><span id='data'>Hotel_Name : </span>" . $d['Hotel_Name'] . "</td>
+                                <td><span id='data'>Hotel_Address : </span>" . $d['Hotel_Address'] . "</td>
+                                <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>
                             </tr>
                         </tbody>";
                 }

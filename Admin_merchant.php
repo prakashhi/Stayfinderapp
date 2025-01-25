@@ -113,10 +113,10 @@
                     </table>";
                 } else {
                     echo "<div class='table-container'>
-                <h1>Merchnat Table</h1>
+                <h1>Customer Table</h1>
                     <table>
                         <thead>
-                            <tr>
+                            <tr id ='data2'>
                                 <th>U_id</th>
                                 <th>Username</th>
                                 <th>Email</th>
@@ -127,10 +127,10 @@
                     while ($d = mysqli_fetch_assoc($dv)) {
                         echo "<tbody>
                     <tr>
-                        <td>" . $d['Uc_id'] . "</td>
-                        <td>" . $d['Username'] . "</td>
-                        <td>" . $d['Email'] . "</td>
-                        <td>" . $d['Mobile_no'] . "</td>
+                        <td><span id='data'>U_id :</span>" . $d['Uc_id'] . "</td>
+                        <td><span id='data'>Username :</span>" . $d['Username'] . "</td>
+                        <td><span id='data'>Email :</span>" . $d['Email'] . "</td>
+                        <td><span id='data'>Mobile_no :</span>" . $d['Mobile_no'] . "</td>
                     </tr>
                 </tbody>";
                     }
@@ -151,7 +151,7 @@
                 <h1>Customer Table</h1>
                     <table>
                         <thead>
-                            <tr>
+                            <tr id='data2'>
                                 <th>U_id</th>
                                 <th>Username</th>
                                 <th>Email</th>
@@ -162,10 +162,10 @@
                 while ($d = mysqli_fetch_assoc($data)) {
                     echo "<tbody>
                     <tr>
-                        <td>" . $d['Uc_id'] . "</td>
-                        <td>" . $d['Username'] . "</td>
-                        <td>" . $d['Email'] . "</td>
-                        <td>" . $d['Mobile_no'] . "</td>
+                        <td><span id='data'>U_id :</span>" . $d['Uc_id'] . "</td>
+                        <td><span id='data'>Username :</span>" . $d['Username'] . "</td>
+                        <td><span id='data'>Email :</span>" . $d['Email'] . "</td>
+                        <td><span id='data'>Mobile_no :</span>" . $d['Mobile_no'] . "</td>
                     </tr>
                 </tbody>";
                 }
