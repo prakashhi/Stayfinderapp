@@ -44,36 +44,40 @@
       </form>
     </div>
 
-    <div class='con'>
-      <div class='imgcon'>
-        <img src='https://r1imghtlak.mmtcdn.com/eb83a2f46f9611e78f69025f77df004f.jpg?output-quality=75&downsize=243:162&output-format=jpg'>
-      </div>
-      <div class='datcon'>
-        <span class='h_name'>The Fern Residency, Gandhinagar</span>
-        <span class='h_address'>Sargaasan, Gandhinagar</span>
-        <span class='h_price'>₹ 30,535</span>
+    <div class="alldata">
 
 
-      </div>
+      <?php
+      include './Process/cnn.php';
 
+
+      $d = mysqli_query($cnn, "select * from room_list");
+      while ($dv = mysqli_fetch_array($d)) {
+
+        $hid = $dv['Hotel_id'];
+      $id = $dv['Room_id'];
+
+        $data = mysqli_query($cnn, "select * from m_register where Hotel_id = '$hid' ");
+
+        while ($ho = mysqli_fetch_array($data)) {
+          $imgurl = $dv['Room_img1'];
+
+          echo "<a href='./Customer_pages/carddata.php?id=$id'>
+          <div class='con'>
+            <img class='imgcon' src='./Hotel_img/$imgurl'>
+            <div class='datcon'>
+              <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
+              <span class='h_address'>" . $ho['Hotel_Address'] . "</span>
+              <span class='h_price'>₹ " . $dv['Price'] . "</span>
+            </div>
+          </div>
+        </a>";
+        }
+      }
+
+      ?>
 
     </div>
-    <div class='con'>
-      <div class='imgcon'>
-        <img src='https://r1imghtlak.mmtcdn.com/eb83a2f46f9611e78f69025f77df004f.jpg?output-quality=75&downsize=243:162&output-format=jpg'>
-      </div>
-      <div class='datcon'>
-        <span class='h_name'>The Fern Residency, Gandhinagar</span>
-        <span class='h_address'>Sargaasan, Gandhinagar</span>
-        <span class='h_price'>₹ 30,535</span>
-
-
-      </div>
-
-
-    </div>
-
-
   </div>
 
   </div>

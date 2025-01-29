@@ -69,9 +69,9 @@ a {
 }
 
 .serchnav {
-  background: #04111e;
+  background: #dfdfff;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 4px;
   margin-bottom: 45px;
 }
 
@@ -84,7 +84,9 @@ a {
 .serchnav span,
 button {
   display: flex;
-  color: white;
+  color: #111f6a;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 
 }
@@ -97,26 +99,35 @@ button {
   background-color: #1970f6;
   color: white;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 4px;
   border: none;
   font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.serchnav button:hover{
+  transition-duration: 0.5s;
+ font-size: 25px;
+}
+
+
 .serchnav input {
   border: none;
-  background-color: #213344;
-  color: white;
-
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 3px;
+}
+
+.alldata
+{
+  height: 80vh;
+  overflow: auto;
 }
 
 .con {
   display: flex;
   margin-top: 15px;
 
-  /* background-color: #1970f6; */
+background-color: #f6f6f9; 
   margin: 10px;
   border-radius: 5px;
   border: 1px solid rgb(203, 200, 200);
@@ -130,59 +141,64 @@ button {
 }
 
 .imgcon {
+  width: 35%;
   display: flex;
   justify-content: flex-start;
   padding: 10px;
-
+  border-radius: 13px;
 }
 
-.imgcon img {
-  border-radius: 10px;
-}
 
-.datcon
-{
+
+
+.datcon {
   width: 100%;
   padding: 10px;
 }
 
 .h_name {
   display: flex;
+  color: black;
 
   font-size: 22px;
   font-weight: bolder;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .h_address {
   display: flex;
- 
+
   color: rgb(97, 97, 223);
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.h_price
-{
+
+.h_price {
   display: flex;
-  position: absolute;
-  bottom: 42px;
+  justify-content: end;
   font-size: 20px;
   font-weight: bold;
+  margin: 61px;
+  color: #04010f;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (max-width: 700px)
-{
-  .con{
+@media only screen and (max-width: 700px) {
+  .con {
     transition-duration: 0.5s;
     display: block;
   }
-  .h_price{
+
+  .h_price {
     transition-duration: 0.5s;
-    position:initial;
+    justify-content: flex-start;
+    margin: 10px;
+
   }
-  .imgcon{
-   display: block;
+
+  .imgcon {
+    display: block;
+    width: 95%;
   }
 
 }

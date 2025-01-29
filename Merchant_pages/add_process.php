@@ -28,7 +28,7 @@ if ($_POST) {
 
 
     $u = uniqid("R", true);
-    mysqli_query($cnn, "INSERT INTO room_list VALUES ('$u','$hid','$t','$a','$r','$c','Open','$target') ");
+    mysqli_query($cnn, "INSERT INTO room_list VALUES ('$u','$hid','$t','$a','$r','$c','Open','$ui') ");
 
     header("location:../merchant_dash.php");
 }

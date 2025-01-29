@@ -75,10 +75,10 @@
                             <label for="roomType">Room Type</label>
                             <select id="roomType" required name='type'>
                                 <option value="" disabled selected>Select room type</option>
-                                <option value="Single Room">Single Room</option>
-                                <option value="Double Room">Double Room</option>
-                                <option value="Suite">Suite</option>
+                                <option value="Standard Room">Standard Room</option>
                                 <option value="Deluxe Room">Deluxe Room</option>
+                                <option value="Suite">Suite</option>
+                                <option value="Family Room">Family Room</option>
                             </select>
                         </div>
 
@@ -100,10 +100,11 @@
                             <label for="capacity">Room Capacity</label>
                             <select id="capacity" required name='capacity'>
                                 <option value="" disabled selected>Select capacity</option>
-                                <option value="Family">Family</option>
-                                <option value="2">2 People</option>
-                                <option value="3">3 People</option>
-                                <option value="4">4 People</option>
+                                <option value="Single Room">Single Room(1 Guests)</option>
+                                <option value="Twin Room">Twin Room(2 Guests)</option>
+                                <option value="Triple Room">Triple Room(3 Guests)</option>
+                                <option value="Quard Room">Quard Room(4 Guests)</option>
+                                <option value="Family Room">Family Room(4-6 Guests)</option>
                             </select>
                         </div>
 
