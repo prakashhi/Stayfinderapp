@@ -7,8 +7,6 @@
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +19,8 @@
     <title>Hotel information</title>
 </head>
 <body>
+    <a href=""></a>
+
 <?php
 include '../Process/cnn.php';
 
@@ -29,17 +29,40 @@ $id = $_GET['id'];
 
 $dv = mysqli_query($cnn, "Select * from room_list where Room_id = '$id' ");
 
+
+
 $d = mysqli_fetch_array($dv);
 
 $hid = $d['Hotel_id'];
+$imgurl1 = $d['Room_img1'];
+$imgurl2 = $d['Room_img2'];
+$imgurl3 = $d['Room_img3'];
 
 $hdata = mysqli_query($cnn,"Select * from  m_register where Hotel_id = '$hid' ");
 
 $hd = mysqli_fetch_array($hdata);
 
+
 echo "<div class='hotel-container'>
 <div class='hotel-card'>
     <div class='hotel-image'>
+
+    <div class='slider-container'>
+        <div class='slider'>
+            <div class='slide'>
+                <img src='../Hotel_img/$imgurl1'>
+            </div>
+            <div class='slide'>
+                <img src='../Hotel_img/$imgurl2'>
+            </div>
+            <div class='slide'>
+                <img src='../Hotel_img/$imgurl3'>
+            </div>
+        </div>
+        <div class='navigation-dots'></div>
+    </div>
+    
+
         <div class='price-tag'>From " . $d['Price'] . " ₹ /night</div>
     </div>
     
@@ -88,6 +111,55 @@ echo "<div class='hotel-container'>
 
 
 ?> 
+ <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+        
+        // Auto-advance every 5 seconds
+        const intervalTime = 5000;
+        let sliderInterval = setInterval(nextSlide, intervalTime);
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
+        }
+
+        // Optional navigation dots
+        function createDots() {
+            const dotsContainer = document.querySelector('.navigation-dots');
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if(index === currentIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider();
+                    resetInterval();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function resetInterval() {
+            clearInterval(sliderInterval);
+            sliderInterval = setInterval(nextSlide, intervalTime);
+        }
+
+        // Initialize dots
+        createDots();
+    </script>
     
 </body>
 </html>

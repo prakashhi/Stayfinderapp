@@ -7,11 +7,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    
+
     margin: 20px;
 }
-#hambtn
-{
+
+#hambtn {
     width: 22px;
 }
 
@@ -128,6 +128,17 @@ a {
     cursor: pointer;
 }
 
+.delete-btn {
+    padding: 10px 30px;
+    border-radius: 7px;
+    border: none;
+    background: #d5183b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 @media only screen and (max-width: 768px) {
     * {
         transition-duration: 0.5s;
@@ -137,13 +148,13 @@ a {
 
         font-size: 10px;
     }
-    .close
-    {
+
+    .close {
         width: 20px;
         cursor: pointer;
     }
-    .logo img
-    {
+
+    .logo img {
         width: 50px;
     }
 
@@ -151,28 +162,28 @@ a {
         width: 40vh;
 
     }
-    .right
-    {
+
+    .right {
         height: auto;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    *
-    {
+    * {
         transition-duration: 0.5s;
     }
+
     .navbar {
-       
+
         font-size: 8px;
     }
-    .name span
-    {
+
+    .name span {
         font-size: 25px;
     }
-    .right
-    {
+
+    .right {
         height: auto;
     }
-   
+
 }

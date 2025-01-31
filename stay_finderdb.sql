@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2025 at 05:06 PM
+-- Generation Time: Jan 31, 2025 at 01:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -109,19 +109,18 @@ CREATE TABLE `room_list` (
   `Price` int(11) NOT NULL,
   `Room_capacity` varchar(30) NOT NULL,
   `Booking_status` varchar(10) NOT NULL,
-  `Room_img1` varchar(100) NOT NULL
+  `Room_img1` varchar(100) NOT NULL,
+  `Room_img2` varchar(100) NOT NULL,
+  `Room_img3` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `room_list`
 --
 
-INSERT INTO `room_list` (`Room_id`, `Hotel_id`, `Room_type`, `AC / NOAC`, `Price`, `Room_capacity`, `Booking_status`, `Room_img1`) VALUES
-('R679a4aaa1', 'H66ec1fc71', 'Standard Room', 'Non-Ac', 3000, 'Single Room', 'Open', 'Img679a4aaa1a35d8.51813075.png'),
-('R679a4ae97', 'H6799f6f5a', 'Deluxe Room', 'AC', 5000, 'Twin Room', 'Open', 'Img679a4ae9779ff6.40108726.jpg'),
-('R679a4fb52', 'H6799f6f5a', 'Standard Room', 'Non-Ac', 2000, 'Single Room', 'Open', 'Img679a4fb5085925.63314181.jpg'),
-('R679a4fe24', 'H6799f6f5a', 'Family Room', 'AC', 5000, 'Family Room', 'Open', 'Img679a4fe24a2a87.39488249.jpg'),
-('R679a503e8', 'H6799f61b2', 'Suite', 'Non-Ac', 4500, 'Twin Room', 'Open', 'Img679a503e7fb324.45596340.jpg');
+INSERT INTO `room_list` (`Room_id`, `Hotel_id`, `Room_type`, `AC / NOAC`, `Price`, `Room_capacity`, `Booking_status`, `Room_img1`, `Room_img2`, `Room_img3`) VALUES
+('R679cc34f7', 'H6799f61b2', 'Deluxe Room', 'AC', 5000, 'Twin Room', 'Open', 'Img679cc34f755867.26228128.webp', 'Img679cc34f7596e5.50826521.avif', 'Img679cc34f75d579.76569198.avif'),
+('R679cc7c48', 'H6799f8972', 'Deluxe Room', 'AC', 10500, 'Family Room', 'Open', 'Img679cc7c48d94a2.99634032.jpg', 'Img679cc7c48dd329.12085157.avif', 'Img679cc7c48e11a4.29375064.webp');
 
 --
 -- Indexes for dumped tables

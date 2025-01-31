@@ -109,8 +109,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="roomImg">Room Img</label>
+                            <label for="roomImg">Main Img</label>
                             <input type="file" id="roomImg" accept="image/*" required name='img1'>
+                            <label for="roomImg">Room Img1</label>
+                            <input type="file" id="roomImg" accept="image/*" required name='img2'>
+                            <label for="roomImg">Room Img2</label>
+                            <input type="file" id="roomImg" accept="image/*" required name='img3'>
                         </div>
 
 

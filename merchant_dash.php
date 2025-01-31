@@ -81,10 +81,12 @@
                             <th>Price</th>
                             <th>Room_capacity</th>
                             <th>Booking_status</th>
+                            <th></th>
                         </tr>
                     </thead>";
 
             while ($d = mysqli_fetch_assoc($dv)) {
+                $id = $d['Room_id']; 
                 echo "<tbody>
                 <tr>
                     <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
@@ -93,13 +95,22 @@
                     <td><span id='data'>Price :</span>" . $d['Price'] . " ₹</td>
                     <td><span id='data'>Room_capacity :</span>" . $d['Room_capacity'] . "</td>
                     <td><span id='data'>Booking_status :</span>" . $d['Booking_status'] . "</td>
+                    <td><a href='merchant_dash.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
                 </tr>
             </tbody>";
 
             }
             echo "</table></div>";
+            
+                    if(isset($_GET['id']))
+                    {
+                        $rid = $_GET['id'];
+                        mysqli_query($cnn,"DELETE FROM `room_list` WHERE Room_id = '$rid' ");
+                        header("location:./merchant_dash.php");
+                    }
 
             ?>
+           
 
 
         

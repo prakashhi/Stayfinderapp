@@ -37,26 +37,26 @@
     </nav>
 
     <div class="serchnav">
-      <form action="">
-        <span>Location</span>
-        <input type="text">
-        <button>Search</button>
+      <form action="./index.php" method="POST">
+        <input type="text" placeholder="Search here...." name="location" required>
+        <button name="serchbtn">Search</button>
       </form>
     </div>
 
     <div class="alldata">
 
-
       <?php
       include './Process/cnn.php';
 
 
-      $d = mysqli_query($cnn, "select * from room_list");
+          $d = mysqli_query($cnn, "select * from room_list");
       while ($dv = mysqli_fetch_array($d)) {
 
         $hid = $dv['Hotel_id'];
       $id = $dv['Room_id'];
 
+      if(!array_key_exists('serchbtn',$_POST))
+      {
         $data = mysqli_query($cnn, "select * from m_register where Hotel_id = '$hid' ");
 
         while ($ho = mysqli_fetch_array($data)) {
@@ -73,7 +73,63 @@
           </div>
         </a>";
         }
+    }
       }
+
+
+    
+    
+      if(array_key_exists('serchbtn',$_POST))
+
+      {
+          
+          $i = $_POST['location'];
+         $new = mysqli_query($cnn, "SELECT * FROM  m_register WHERE Hotel_Name LIKE '%$i%' OR Hotel_Address LIKE '%$i%'");
+         if(mysqli_num_rows($new) == 0)
+         {
+
+          echo "<h1>Not found</h1>";
+
+
+
+         }
+        while ($ho = mysqli_fetch_array($new)) {
+
+         $hid= $ho['Hotel_id'];
+
+          $d = mysqli_query($cnn, "select * from room_list where Hotel_id = '$hid' ");
+
+       
+          while($dv = mysqli_fetch_array($d))
+          {
+                $imgurl = $dv['Room_img1'];
+
+                echo "
+                
+                <a href='./Customer_pages/carddata.php?id=$id'>
+                <div class='con'>
+                  <img class='imgcon' src='./Hotel_img/$imgurl'>
+                  <div class='datcon'>
+                    <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
+                    <span class='h_address'>" . $ho['Hotel_Address'] . "</span>
+                    <span class='h_price'>₹ " . $dv['Price'] . "</span>
+                  </div>
+                </div>
+              </a>";
+
+          }
+
+        
+        }     
+      }
+      
+
+
+    
+
+     
+
+        
 
       ?>
 
