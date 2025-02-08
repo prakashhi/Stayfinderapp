@@ -1,14 +1,14 @@
 <?php
- session_start();
- if (!isset($_SESSION['name'])) {
- header("location:../login.php");
-
- }
+session_start();
+if (!isset($_SESSION['name'])) {
+    header("location:../login.php");
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,32 +18,33 @@
     <link rel="stylesheet" href="../CSS/carddata.css">
     <title>Hotel information</title>
 </head>
+
 <body>
     <a href=""></a>
 
-<?php
-include '../Process/cnn.php';
+    <?php
+    include '../Process/cnn.php';
 
-$id = $_GET['id'];
-
-
-$dv = mysqli_query($cnn, "Select * from room_list where Room_id = '$id' ");
+    $id = $_GET['id'];
 
 
-
-$d = mysqli_fetch_array($dv);
-
-$hid = $d['Hotel_id'];
-$imgurl1 = $d['Room_img1'];
-$imgurl2 = $d['Room_img2'];
-$imgurl3 = $d['Room_img3'];
-
-$hdata = mysqli_query($cnn,"Select * from  m_register where Hotel_id = '$hid' ");
-
-$hd = mysqli_fetch_array($hdata);
+    $dv = mysqli_query($cnn, "Select * from room_list where Room_id = '$id' ");
 
 
-echo "<div class='hotel-container'>
+
+    $d = mysqli_fetch_array($dv);
+
+    $hid = $d['Hotel_id'];
+    $imgurl1 = $d['Room_img1'];
+    $imgurl2 = $d['Room_img2'];
+    $imgurl3 = $d['Room_img3'];
+
+    $hdata = mysqli_query($cnn, "Select * from  m_register where Hotel_id = '$hid' ");
+
+    $hd = mysqli_fetch_array($hdata);
+
+
+    echo "<div class='hotel-container'>
 <div class='hotel-card'>
     <div class='hotel-image'>
 
@@ -67,12 +68,12 @@ echo "<div class='hotel-container'>
     </div>
     
     <div class='hotel-content'>
-        <span class='hotel-type'>".$d['Room_type']."</span>
-        <h1 class='hotel-name'>".$hd['Hotel_Name']."</h1>
+        <span class='hotel-type'>" . $d['Room_type'] . "</span>
+        <h1 class='hotel-name'>" . $hd['Hotel_Name'] . "</h1>
         
         <div class='info-item'>
             <i class='fas fa-map-marker-alt'></i>
-            <p>".$hd['Hotel_Address']."</p>
+            <p>" . $hd['Hotel_Address'] . "</p>
         </div>
       
         <div class='amenities'>
@@ -89,33 +90,37 @@ echo "<div class='hotel-container'>
         <div class='capacity-box'>
             <div class='capacity-item'>
                 <span>ID</span>
-                <span>".$id."</span>
+                <span>" . $id . "</span>
             </div>
             <div class='capacity-item'>
                 <span>Guests</span>
-                <span>".$d['Room_capacity']."</span>
+                <span>" . $d['Room_capacity'] . "</span>
             </div>
             <div class='capacity-item'>
                 <span>Type</span>
-                <span>".$d['AC / NOAC']."</span>
+                <span>" . $d['AC / NOAC'] . "</span>
             </div>
-        </div>
+        </div>";
 
-        <button class='book-button'>
+        $p = $d['Price'];
+        $hid = $hd['Hotel_id'];
+
+        echo "<a style='text-decoration:none;' class='book-button' href='./payment.php?price=$p&&id=$id&&hid=$hid'>
             <i class='fas fa-concierge-bell'></i>
             Reserve Now
-        </button>
+        </a>
     </div>
 </div>
 </div>";
 
 
-?> 
- <script>
+    ?>
+
+    <script>
         const slider = document.querySelector('.slider');
         const slides = document.querySelectorAll('.slide');
         let currentIndex = 0;
-        
+
         // Auto-advance every 5 seconds
         const intervalTime = 5000;
         let sliderInterval = setInterval(nextSlide, intervalTime);
@@ -136,7 +141,7 @@ echo "<div class='hotel-container'>
             slides.forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('dot');
-                if(index === currentIndex) dot.classList.add('active');
+                if (index === currentIndex) dot.classList.add('active');
                 dot.addEventListener('click', () => {
                     currentIndex = index;
                     updateSlider();
@@ -160,6 +165,7 @@ echo "<div class='hotel-container'>
         // Initialize dots
         createDots();
     </script>
-    
+
 </body>
+
 </html>
