@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['mname'])) {
+    header("location:../merchant_l.php");
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,13 +46,7 @@
                         Room List
                     </li>
                 </a>
-
-                <a href="./Merchant_pages/Addroom.php">
-                    <li>
-                        Add Room
-                    </li>
-                </a>
-                <a href="./Merchant_pages/Addroom.php">
+                <a href="./View_booking.php">
                     <li>
                         Booking List
                     </li>
@@ -57,7 +63,7 @@
                 </h1>
                 <h2 class="uname">
                     <?php
-                    session_start();
+
                     if (isset($_SESSION['mname'])) {
                         echo   "<span>" . $_SESSION['mname'] . "</span>";
                         echo  "<a href='../Process/logout.php'>Log out</a>";
@@ -118,12 +124,12 @@
                         </div>
 
 
-                        <button type="submit" >Update Room</button>
+                        <button type="submit">Update Room</button>
                     </form>
                 </div>
             </div>
 
-            
+
 
 
 

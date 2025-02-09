@@ -88,6 +88,9 @@ if (isset($stripeResponse['id'])) {
     mysqli_query($cnn,"INSERT INTO `booking_list` VALUES ('$pay_id','$r_id','$g','$h_id','$Member','$check_in','$check_out','$amount')");
 
 
+    mysqli_query($cnn,"update room_list set Booking_status = 'Booked' where Room_id = '$$r_id' ");
+
+
 
     // Email for merchant
     $merchantSubject = "New Payment Received";

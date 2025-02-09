@@ -67,11 +67,6 @@
                 <div class="search">
 
                     <input class="stc" type="text" name="serch" placeholder="Search...">
-                    <select name="type" id="opt">
-                        <option value="Uc_id">Id</option>
-                        <option value="Username">Username</option>
-                        <option value="Email">Email</option>
-                    </select>
                     <button class="scbtn" name="serchbtn">Search</button>
 
                 </div>
@@ -86,11 +81,10 @@
 
                 include './Process/cnn.php';
 
-                $name = $_POST['type'];
 
                 $i = $_POST['serch'];
 
-                $dv = mysqli_query($cnn, "Select * from c_register where $name ='$i'");
+                $dv = mysqli_query($cnn, "Select * from c_register where Uc_id LIKE '%$i%' OR Username LIKE '%$i%' OR Email LIKE '%$i%' OR Mobile_no LIKE '%$i%'");
 
                 if (mysqli_num_rows($dv) ==  0) {
                     echo "<div class='table-container'>

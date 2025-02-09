@@ -49,7 +49,7 @@
       include './Process/cnn.php';
 
 
-          $d = mysqli_query($cnn, "select * from room_list");
+          $d = mysqli_query($cnn, "select * from room_list where Booking_status = 'Open' ");
       while ($dv = mysqli_fetch_array($d)) {
 
         $hid = $dv['Hotel_id'];
@@ -97,7 +97,7 @@
 
          $hid= $ho['Hotel_id'];
 
-          $d = mysqli_query($cnn, "select * from room_list where Hotel_id = '$hid' ");
+          $d = mysqli_query($cnn, "select * from room_list where Hotel_id = '$hid' AND Booking_status = 'Open' ");
 
        
           while($dv = mysqli_fetch_array($d))

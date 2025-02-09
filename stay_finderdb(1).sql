@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2025 at 01:57 PM
+-- Generation Time: Feb 09, 2025 at 08:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,6 +38,30 @@ CREATE TABLE `a_register` (
 
 INSERT INTO `a_register` (`Username`, `Password`) VALUES
 ('adminstay', '$2y$10$GQWxLIQDoEg8PhwyJQ1bXeaOCMUfJGLKVxyrFHFczXyr6i2jX1zAy');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking_list`
+--
+
+CREATE TABLE `booking_list` (
+  `Payment_id` varchar(20) NOT NULL,
+  `Room_id` varchar(20) NOT NULL,
+  `Customer_id` varchar(20) NOT NULL,
+  `Hotel_id` varchar(30) NOT NULL,
+  `Numberof_Memeber` int(11) NOT NULL,
+  `Checkin_Date` varchar(20) NOT NULL,
+  `Checkout_Date` varchar(20) NOT NULL,
+  `Amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking_list`
+--
+
+INSERT INTO `booking_list` (`Payment_id`, `Room_id`, `Customer_id`, `Hotel_id`, `Numberof_Memeber`, `Checkin_Date`, `Checkout_Date`, `Amount`) VALUES
+('Pay67a7655410e247.34', 'R679cc7c48', 'C66eabd746', 'H6799f8972', 4, '2025-02-19', '2025-02-25', 6300000);
 
 -- --------------------------------------------------------
 

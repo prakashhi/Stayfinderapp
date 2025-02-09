@@ -28,15 +28,14 @@
 
             <div class="menu">
 
-                <a href="#">
-                    <li>
-                        Room List
-                    </li>
-                </a>
-
                 <a href="./Merchant_pages/Addroom.php">
                     <li>
                         Add Room
+                    </li>
+                </a>
+                <a href="./Merchant_pages/View_booking.php">
+                    <li>
+                        Booking List
                     </li>
                 </a>
             </div>
