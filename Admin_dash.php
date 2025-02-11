@@ -38,6 +38,11 @@
                         Customer List
                     </li>
                 </a>
+                <a href="./transaction.php">
+                    <li>
+                        Trasaction Data
+                    </li>
+                </a>
 
 
             </div>

@@ -160,12 +160,17 @@ if (!isset($_SESSION['name'])) {
                     .then(data => {
                         if (data.success) {
                             alert('Payment Successful!');
+                            window.location.href = "../index.php";
+                            submitButton.value = "Pay Now";
+                        submitButton.disabled = false;
                         } else {
-                            document.getElementById('error-message').textContent = data.error;
+                           
+                            document.getElementById('error-message').textContent = data.error; 
+                            submitButton.value = "Pay Now";
+                        submitButton.disabled = false;
                         }
 
-                        submitButton.value = "Pay Now";
-                        submitButton.disabled = false;
+                     
                     });
             }
         });

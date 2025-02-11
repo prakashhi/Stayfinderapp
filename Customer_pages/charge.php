@@ -58,6 +58,8 @@ if (isset($stripeResponse['id'])) {
     $mdata = mysqli_query($cnn,"Select * from m_register where Hotel_id= '$h_id'");
     $m1data = mysqli_fetch_array($mdata);
 
+    $m_id = $m1data['Um_id'];
+
 
 
 
@@ -74,7 +76,7 @@ if (isset($stripeResponse['id'])) {
     // Transaction details for the customer email
     $subject = "Payment Successful";
     
-    $message = "Dear $fullName,\n\nYour payment of $" . ($amount / 100) . "₹ was successfully processed.\n\nYour Payment ID: ". $pay_id ." \n\nTransaction ID: " . $transactionId . "\n\n and Room ID: ".$r_id."\n\nDate of Booking is : ". $check_in ." To ". $check_out ." \n\nThank you for your Booking!";
+    $message = "Dear $fullName,\n\nYour payment of " . ($amount / 100) . "₹ was successfully processed.\n\nYour Payment ID: ". $pay_id ." \n\nTransaction ID: " . $transactionId . "\n\n and Room ID: ".$r_id."\n\nDate of Booking is : ". $check_in ." To ". $check_out ." \n\nThank you for your Booking!";
     $headers = "From: noreply@example.com\r\nReply-To: noreply@example.com";
 
     // Send email to the customer
@@ -85,16 +87,17 @@ if (isset($stripeResponse['id'])) {
     $cdata = mysqli_fetch_array($c);
 
     $g =  $cdata['Uc_id'];
-    mysqli_query($cnn,"INSERT INTO `booking_list` VALUES ('$pay_id','$r_id','$g','$h_id','$Member','$check_in','$check_out','$amount')");
+    $t = Date('Y-m-d H:i:s');
+    mysqli_query($cnn,"INSERT INTO `booking_list` VALUES ('$pay_id','$r_id','$g','$fullName','$h_id','$Member','$check_in','$check_out','$amount','$t')");
 
 
-    mysqli_query($cnn,"update room_list set Booking_status = 'Booked' where Room_id = '$$r_id' ");
+    mysqli_query($cnn,"update room_list set Booking_status = 'Booked' where Room_id = '$r_id' ");
 
 
 
     // Email for merchant
     $merchantSubject = "New Payment Received";
-    $merchantMessage = "Dear Merchant,\n\nA new payment of $" . ($amount / 100) . " has been received. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: $" . ($amount / 100) . "\nCustomer Email: " . $customerEmail;
+    $merchantMessage = "Dear Merchant,\n\nA new payment of " . ($amount / 100) . "₹ has been received. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: $" . ($amount / 100) . "\nCustomer Email: " . $customerEmail;
     $merchantHeaders = "From: noreply@example.com\r\nReply-To: noreply@example.com";
 
     // Send email to the merchant
@@ -102,16 +105,21 @@ if (isset($stripeResponse['id'])) {
 
     // Email for admin
     $adminSubject = "New Payment Alert";
-    $adminMessage = "Dear Admin,\n\nA new payment of $" . ($amount / 100) . " has been successfully processed. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: $" . ($amount / 100) . "\nCustomer Email: " . $customerEmail . "\n\nPlease review the transaction.";
+    $adminMessage = "Dear Admin,\n\nA new payment of " . ($amount / 100) . "₹ has been successfully processed. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: $" . ($amount / 100) . "\nCustomer Email: " . $customerEmail . "\n\n and Merchant ID: ".$m_id." Please review the transaction.";
     $adminHeaders = "From: noreply@example.com\r\nReply-To: noreply@example.com";
 
     // Send email to the admin
     mail($adminEmail, $adminSubject, $adminMessage, $adminHeaders);
 
+    header("location:../index.php");
     // Return success response to front-end
     echo json_encode(["success" => true]);
+	
+	
 } else {
     // Payment failed
     echo json_encode(["error" => $stripeResponse['error']['message']]);
 }
 ?>
+
+

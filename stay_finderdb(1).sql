@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2025 at 08:47 AM
+-- Generation Time: Feb 11, 2025 at 02:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,19 +49,23 @@ CREATE TABLE `booking_list` (
   `Payment_id` varchar(20) NOT NULL,
   `Room_id` varchar(20) NOT NULL,
   `Customer_id` varchar(20) NOT NULL,
+  `Customer_name` varchar(50) NOT NULL,
   `Hotel_id` varchar(30) NOT NULL,
   `Numberof_Memeber` int(11) NOT NULL,
   `Checkin_Date` varchar(20) NOT NULL,
   `Checkout_Date` varchar(20) NOT NULL,
-  `Amount` int(11) NOT NULL
+  `Amount` int(11) NOT NULL,
+  `Transaction_Date` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking_list`
 --
 
-INSERT INTO `booking_list` (`Payment_id`, `Room_id`, `Customer_id`, `Hotel_id`, `Numberof_Memeber`, `Checkin_Date`, `Checkout_Date`, `Amount`) VALUES
-('Pay67a7655410e247.34', 'R679cc7c48', 'C66eabd746', 'H6799f8972', 4, '2025-02-19', '2025-02-25', 6300000);
+INSERT INTO `booking_list` (`Payment_id`, `Room_id`, `Customer_id`, `Customer_name`, `Hotel_id`, `Numberof_Memeber`, `Checkin_Date`, `Checkout_Date`, `Amount`, `Transaction_Date`) VALUES
+('Pay67a7655410e247.34', 'R679cc7c48', 'C66eabd746', '', 'H6799f8972', 4, '2025-02-19', '2025-02-25', 6300000, ''),
+('Pay67ab50385e69f0.08', 'R67ab45c76', 'C66eabd746', 'Shuresh', 'H6799f8972', 1, '2025-02-12', '2025-02-13', 550000, '2025-02-11 14:27:27'),
+('Pay67ab515922f833.13', 'R67ab45c76', 'C66eabd746', 'Shuresh', 'H6799f8972', 2, '2025-02-12', '2025-02-13', 550000, '2025-02-11 14:32:16');
 
 -- --------------------------------------------------------
 
@@ -144,7 +148,8 @@ CREATE TABLE `room_list` (
 
 INSERT INTO `room_list` (`Room_id`, `Hotel_id`, `Room_type`, `AC / NOAC`, `Price`, `Room_capacity`, `Booking_status`, `Room_img1`, `Room_img2`, `Room_img3`) VALUES
 ('R679cc34f7', 'H6799f61b2', 'Deluxe Room', 'AC', 5000, 'Twin Room', 'Open', 'Img679cc34f755867.26228128.webp', 'Img679cc34f7596e5.50826521.avif', 'Img679cc34f75d579.76569198.avif'),
-('R679cc7c48', 'H6799f8972', 'Deluxe Room', 'AC', 10500, 'Family Room', 'Open', 'Img679cc7c48d94a2.99634032.jpg', 'Img679cc7c48dd329.12085157.avif', 'Img679cc7c48e11a4.29375064.webp');
+('R679cc7c48', 'H6799f8972', 'Deluxe Room', 'AC', 10500, 'Family Room', 'Open', 'Img679cc7c48d94a2.99634032.jpg', 'Img679cc7c48dd329.12085157.avif', 'Img679cc7c48e11a4.29375064.webp'),
+('R67ab45c76', 'H6799f8972', 'Standard Room', 'AC', 5500, 'Triple Room', 'Booked', 'Img67ab45c7683530.40259731.avif', 'Img67ab45c768b238.56685913.avif', 'Img67ab45c768f0b7.86955156.avif');
 
 --
 -- Indexes for dumped tables

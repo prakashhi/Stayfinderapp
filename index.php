@@ -46,7 +46,10 @@
     <div class="alldata">
 
       <?php
+
+
       include './Process/cnn.php';
+   
 
 
           $d = mysqli_query($cnn, "select * from room_list where Booking_status = 'Open' ");
