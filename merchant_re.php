@@ -1,6 +1,3 @@
-<!-- Merchant Register page 
-File name:-merchant_re.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 

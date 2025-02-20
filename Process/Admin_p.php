@@ -1,5 +1,3 @@
-<!-- Admin Login process 
-File name:-Admin_p.php -->
 <?php
 include 'cnn.php';
 
@@ -34,3 +32,4 @@ $no = mysqli_num_rows($li);
     {
         header("location:../Admin.php?login=no");
     }
+?>

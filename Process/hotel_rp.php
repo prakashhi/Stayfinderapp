@@ -1,6 +1,6 @@
-<!-- Mercahnt regsietr process
-File name:-hotel_rp.php -->
 <?php
+
+
 include 'cnn.php';
 $tb = "m_register";
 

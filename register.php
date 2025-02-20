@@ -1,6 +1,3 @@
-<!-- Register for customer
-File name:-register.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 

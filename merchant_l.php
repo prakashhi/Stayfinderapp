@@ -1,5 +1,3 @@
-<!-- Mercahnat Login 
-File name:- merchant_l.php -->
 <!DOCTYPE html>
 <html lang="en">
 

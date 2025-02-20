@@ -1,5 +1,3 @@
-<!-- Admin page code
-File name:-Admin.php -->
 <!DOCTYPE html>
 <html lang="en">
 

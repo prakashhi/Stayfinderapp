@@ -1,5 +1,3 @@
-<!-- connection code
-File name:-cnn.php -->
 <?php
 
 $host="localhost";

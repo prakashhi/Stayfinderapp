@@ -31,3 +31,4 @@ $no = mysqli_num_rows($li);
     {
         header("location:../login.php?login=no");
     }
+?>

@@ -1,6 +1,3 @@
-<!-- Customer Login page
-File name:-login.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 
