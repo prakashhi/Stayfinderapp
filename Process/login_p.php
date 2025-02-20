@@ -1,5 +1,3 @@
-<!-- Customer Login process 
-File name:-login_p.php -->
 <?php
 include 'cnn.php';
 
@@ -28,7 +26,6 @@ $no = mysqli_num_rows($li);
             header("location:../login.php?login=no");
         }
        
-        
     }
     else    
     {

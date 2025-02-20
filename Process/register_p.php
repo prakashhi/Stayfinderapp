@@ -1,5 +1,4 @@
-<!-- Customer register process 
-File name:register_p.php -->
+
 <?php
 
 include 'cnn.php';

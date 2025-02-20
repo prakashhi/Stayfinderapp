@@ -47,7 +47,7 @@
             <div class="navbar">
                 <h1 class="name" class="h-div">
                     <img src="../Images/ham.svg" id="hambtn">
-                    </i> Merchant dashboard
+                    <span class="n1">Merchant Dashboard</span>
                 </h1>
                 <h2 class="uname">
                     <?php
@@ -55,8 +55,6 @@
                     if (isset($_SESSION['mname'])) {
                         echo   "<span>" . $_SESSION['mname'] . "</span>";
                         echo  "<a href='../Process/logout.php'>Log out</a>";
-                    } else {
-                        header("location:merchant_l.php");
                     }
                     ?>
                 </h2>
@@ -82,11 +80,10 @@
 
                 $i = $_POST['serch'];
 
-                $dv = mysqli_query($cnn,"Select * from booking_list where Payment_id LIKE '%$i%' OR Room_id LIKE '%$i%' OR Customer_id LIKE '%$i%' ");
+                $dv = mysqli_query($cnn, "Select * from booking_list where Payment_id LIKE '%$i%' OR Room_id LIKE '%$i%' OR Customer_id LIKE '%$i%' ");
 
 
-                if(mysqli_num_rows($dv) ==  0)
-                {
+                if (mysqli_num_rows($dv) ==  0) {
                     echo "<div class='table-container'>
                     <h1>Booking Table</h1>
                         <table>
@@ -108,8 +105,7 @@
                                     </tr>
                             </tbody>
                         </table>";
-
-                }else{
+                } else {
 
                     echo "<div class='table-container'>
                     <h1>Booking Table</h1>
@@ -125,49 +121,40 @@
                                     <th></th>
                                 </tr>
                             </thead>";
-        
+
                     while ($d = mysqli_fetch_assoc($dv)) {
-                        $id = $d['Room_id']; 
+                        $id = $d['Room_id'];
                         echo "<tbody>
                         <tr>
-                            <td><span id='data'>Room_id :</span>" . $d['Payment_id'] . "</td>
-                            <td><span id='data'>Room_type :</span>" . $d['Room_id'] . "</td>
-                            <td><span id='data'>AC / NOAC :</span>" . $d['Customer_id'] . "</td>
-                            <td><span id='data'>Price :</span>" . $d['Numberof_Memeber'] . "</td>
-                            <td><span id='data'>Room_capacity :</span>" . $d['Checkin_Date'] . "</td>
-                            <td><span id='data'>Booking_status :</span>" . $d['Checkout_Date'] . "</td>
-                            <td><a href='merchant_dash.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
+                            <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
+                            <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
+                            <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                            <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
+                            <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
+                            <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
+                            <td><a href='Delete_book.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
                         </tr>
                     </tbody>";
-        
                     }
                     echo "</table></div>";
-                    
-                            if(isset($_GET['id']))
-                            {
-                                $rid = $_GET['id'];
-                                mysqli_query($cnn,"DELETE FROM `room_list` WHERE Room_id = '$rid' ");
-                                header("location:./merchant_dash.php");
-                            }
-    
 
-                    
-
+                    if (isset($_GET['id'])) {
+                        $rid = $_GET['id'];
+                        mysqli_query($cnn, "DELETE FROM `room_list` WHERE Room_id = '$rid' ");
+                        header("location:./merchant_dash.php");
+                    }
                 }
-
             }
 
 
-            if (array_key_exists('serchbtn', $_POST))
-            {
+            if (array_key_exists('serchbtn', $_POST)) {
                 serchdata();
-            }
-            else{
+            } else {
 
                 $h = $_SESSION['h_id'];
 
                 $dv  = mysqli_query($cnn, "Select * from  booking_list where Hotel_id ='$h'");
-    
+
                 echo "<div class='table-container'>
                 <h1>Booking Table</h1>
                     <table>
@@ -182,31 +169,28 @@
                                 <th></th>
                             </tr>
                         </thead>";
-    
+
                 while ($d = mysqli_fetch_assoc($dv)) {
-                    $id = $d['Room_id']; 
+                    $id = $d['Room_id'];
                     echo "<tbody>
                     <tr>
-                        <td><span id='data'>Room_id :</span>" . $d['Payment_id'] . "</td>
-                        <td><span id='data'>Room_type :</span>" . $d['Room_id'] . "</td>
-                        <td><span id='data'>AC / NOAC :</span>" . $d['Customer_id'] . "</td>
-                        <td><span id='data'>Price :</span>" . $d['Numberof_Memeber'] . "</td>
-                        <td><span id='data'>Room_capacity :</span>" . $d['Checkin_Date'] . "</td>
-                        <td><span id='data'>Booking_status :</span>" . $d['Checkout_Date'] . "</td>
-                        <td><a href='merchant_dash.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
+                        <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
+                        <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
+                        <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                        <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
+                        <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
+                        <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
+                        <td><a href='Delete_book.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
                     </tr>
                 </tbody>";
-    
                 }
                 echo "</table></div>";
-                
-                        if(isset($_GET['id']))
-                        {
-                            $rid = $_GET['id'];
-                            mysqli_query($cnn,"DELETE FROM `room_list` WHERE Room_id = '$rid' ");
-                            header("location:./merchant_dash.php");
-                        }
 
+                if (isset($_GET['id'])) {
+                    $rid = $_GET['id'];
+                    mysqli_query($cnn, "DELETE FROM `room_list` WHERE Room_id = '$rid' ");
+                    header("location:./merchant_dash.php");
+                }
             }
 
 
@@ -220,14 +204,14 @@
 
 
 
-         
-           
+
+
 
             ?>
-           
 
 
-        
+
+
 
 
         </div>

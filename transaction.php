@@ -133,16 +133,16 @@
                     while ($d = mysqli_fetch_assoc($dv)) {
                         echo "<tbody>
                     <tr>
-                        <td><span id='data'>U_id:</span>" . $d['Payment_id'] . "</td>
-                        <td><span id='data'>Username :</span>" . $d['Hotel_id'] . "</td>
-                        <td><span id='data'>Email :</span>" . $d['Customer_id'] . "</td>
-                        <td><span id='data'>Email :</span>" . $d['Customer_name'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Hotel_id'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Numberof_Memeber'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Checkin_Date'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Checkout_Date'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Amount'] . "</td>
-                        <td><span id='data'>Mobile_no :</span>" . $d['Transaction_Date'] . "</td>
+                    <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
+                    <td><span id='data'>Hotel_id :</span>" . $d['Hotel_id'] . "</td>
+                    <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                    <td><span id='data'>Customer_name :</span>" . $d['Customer_name'] . "</td>
+                    <td><span id='data'>Hotel_id :</span>" . $d['Hotel_id'] . "</td>
+                    <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
+                    <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
+                    <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
+                    <td><span id='data'>Amount :</span>" . $d['Amount'] . "</td>
+                    <td><span id='data'>Transaction_Date :</span>" . $d['Transaction_Date'] . "</td>
                     </tr>
                 </tbody>";
                     }
@@ -180,16 +180,16 @@
                 while ($d = mysqli_fetch_assoc($data)) {
                     echo "<tbody>
                     <tr>
-                    <td><span id='data'>U_id:</span>" . $d['Payment_id'] . "</td>
-                    <td><span id='data'>Username :</span>" . $d['Hotel_id'] . "</td>
-                    <td><span id='data'>Email :</span>" . $d['Customer_id'] . "</td>
-                    <td><span id='data'>Email :</span>" . $d['Customer_name'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Hotel_id'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Numberof_Memeber'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Checkin_Date'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Checkout_Date'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Amount'] . "</td>
-                    <td><span id='data'>Mobile_no :</span>" . $d['Transaction_Date'] . "</td>
+                    <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
+                    <td><span id='data'>Hotel_id :</span>" . $d['Hotel_id'] . "</td>
+                    <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                    <td><span id='data'>Customer_name :</span>" . $d['Customer_name'] . "</td>
+                    <td><span id='data'>Hotel_id :</span>" . $d['Hotel_id'] . "</td>
+                    <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
+                    <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
+                    <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
+                    <td><span id='data'>Amount :</span>" . $d['Amount'] . "</td>
+                    <td><span id='data'>Transaction_Date :</span>" . $d['Transaction_Date'] . "</td>
                     </tr>
                 </tbody>";
                 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchnat dashboard</title>
+    <title>Merchnat Dashboard</title>
     <link rel="stylesheet" href="./CSS/index.css">
     <link rel="stylesheet" href="./CSS/table.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,7 +46,7 @@
             <div class="navbar">
                 <h1 class="name" class="h-div">
                     <img src="./Images/ham.svg" id="hambtn">
-                    </i> Merchant dashboard
+                   <span class="n1">Merchant Dashboard</span>
                 </h1>
                 <h2 class="uname">
                     <?php
@@ -60,7 +60,7 @@
                     ?>
                 </h2>
             </div>
-
+           
 
             <?php
             include './Process/cnn.php';
@@ -94,7 +94,7 @@
                     <td><span id='data'>Price :</span>" . $d['Price'] . " ₹</td>
                     <td><span id='data'>Room_capacity :</span>" . $d['Room_capacity'] . "</td>
                     <td><span id='data'>Booking_status :</span>" . $d['Booking_status'] . "</td>
-                    <td><a href='merchant_dash.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
+                    <td><a href='./Merchant_pages/room_de.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
                 </tr>
             </tbody>";
 

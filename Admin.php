@@ -13,7 +13,7 @@ File name:-Admin.php -->
 
 <body>
     <div class="loginwraper">
-        <form action="Process\Admin_p.php" method="POST">
+        <form action="./Process/Admin_p.php" method="POST">
             <h2>Admin Login</h2>
             <?php
             if (isset($_GET['login'])) {

@@ -42,7 +42,7 @@ nav {
 
 ul li:hover {
   cursor: pointer;
-  background-color: green;
+  background-color: #a2cf6c;
   padding: 5px 12px;
   border-radius: 5px;
   transition: all 0.5s ease;
@@ -105,9 +105,9 @@ button {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.serchnav button:hover{
+.serchnav button:hover {
   transition-duration: 0.5s;
- font-size: 25px;
+  font-size: 25px;
 }
 
 
@@ -117,8 +117,7 @@ button {
   border-radius: 3px;
 }
 
-.alldata
-{
+.alldata {
   height: 80vh;
   overflow: auto;
 }
@@ -127,7 +126,7 @@ button {
   display: flex;
   margin-top: 15px;
 
-background-color: #f6f6f9; 
+  background-color: #f6f6f9;
   margin: 10px;
   border-radius: 5px;
   border: 1px solid rgb(203, 200, 200);
@@ -187,6 +186,52 @@ background-color: #f6f6f9;
   .con {
     transition-duration: 0.5s;
     display: block;
+  }
+  .h_address,
+  .h_price {
+    text-align: left;
+  }
+
+  .h_price {
+    transition-duration: 0.5s;
+    justify-content: flex-start;
+    margin: 10px;
+
+  }
+  .datcon {
+    display: grid;
+    gap: 6px;
+  }
+
+  .imgcon {
+    display: block;
+    width: 95%;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
+  .con {
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+
+  #sty {
+    display: none;
+  }
+
+  nav {
+    padding: 6px;
+  }
+
+  .h_address,
+  .h_price {
+    text-align: left;
+  }
+
+  .datcon {
+    display: grid;
+    gap: 6px;
   }
 
   .h_price {

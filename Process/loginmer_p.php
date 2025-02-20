@@ -1,5 +1,3 @@
-<!-- Merchant login 
-File name:- loginmer_p.php -->
 <?php
 include 'cnn.php';
 

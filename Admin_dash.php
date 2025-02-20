@@ -26,13 +26,6 @@
             </div>
 
             <div class="menu">
-
-                <a href="#">
-                    <li>
-
-                        Merchnat List
-                    </li>
-                </a>
                 <a href="./Admin_merchant.php">
                     <li>
                         Customer List

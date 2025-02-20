@@ -22,11 +22,11 @@ if (!isset($_SESSION['name'])) {
 <body>
 
     <div class="form-container">
-        <h2>Payment Information</h2>
+        <h2>Payment</h2>
         <form id="payment-form">
 
-            <?php echo "Room_id : <b id='r_id'>" . $_GET['id'] . "</b><br>" ?>
-            <?php echo "Hotel_id : <b id='h_id'>" . $_GET['hid'] . "</b>" ?>
+            <?php echo "<span style='display:none;'>Room_id : <b id='r_id' >" . $_GET['id'] . "</b></span><br>" ?>
+            <?php echo "<span style='display:none;'>Hotel_id : <b id='h_id'>" . $_GET['hid'] . "</b></span>" ?>
             <div class="form-group">
                 <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" name="full-name" required>
@@ -65,6 +65,7 @@ if (!isset($_SESSION['name'])) {
 
 
 
+
             <div id="error-message" style="color:red;"></div>
         </form>
     </div>
@@ -88,16 +89,11 @@ if (!isset($_SESSION['name'])) {
             let p = parseInt(document.getElementById("price").innerHTML);
 
             let total = p * diff_day;
-            if (total < 0) {
+            if (total <= 0) {
                 window.location.href = "../index.php";
             } else {
                 document.getElementById("price").innerHTML = total;
             }
-
-
-
-
-
 
         }
 
@@ -137,7 +133,6 @@ if (!isset($_SESSION['name'])) {
                 var h_id = document.getElementById("h_id").innerHTML;
 
 
-                // Send token and form data to the backend (charge.php)
                 fetch('charge.php', {
                         method: 'POST',
                         headers: {
@@ -153,28 +148,14 @@ if (!isset($_SESSION['name'])) {
                             p1: p1,
                             r_id: r_id,
                             h_id: h_id
-
                         })
                     })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Payment Successful!');
-                            window.location.href = "../index.php";
-                            submitButton.value = "Pay Now";
-                        submitButton.disabled = false;
-                        } else {
-                           
-                            document.getElementById('error-message').textContent = data.error; 
-                            submitButton.value = "Pay Now";
-                        submitButton.disabled = false;
-                        }
-
-                     
-                    });
+                    .then(window.location.href = "../index.php") // Convert response to JSON
+                   
             }
         });
     </script>
+
 </body>
 
 </html>

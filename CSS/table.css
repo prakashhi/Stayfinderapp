@@ -233,5 +233,14 @@ table {
     height: 70vw;
 
   }
+  .table-container
+  {
+    padding: 13px;
+  }
+  .search
 
+  {
+    padding: 15px;
+  }
+  
 }

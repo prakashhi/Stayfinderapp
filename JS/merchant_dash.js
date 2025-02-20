@@ -3,5 +3,5 @@ document.querySelector("#hambtn").addEventListener("click", () => {
 
 })
 document.querySelector(".closebtn").addEventListener('click', () => {
-    document.querySelector(".left").style.left = "-100%";
+    document.querySelector(".left").style.left = "-1000%";
 })

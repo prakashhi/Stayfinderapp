@@ -14,7 +14,7 @@ File name:-login.php -->
 
 <body>
     <div class="loginwraper">
-        <form action="Process\login_p.php" method="POST">
+        <form action="./Process/login_p.php" method="POST">
             <h2>Login</h2>
             <?php
             if (isset($_GET['login'])) {

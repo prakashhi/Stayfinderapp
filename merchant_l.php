@@ -12,7 +12,7 @@ File name:- merchant_l.php -->
 
 <body>
     <div class="loginwraper">
-        <form action="Process/loginmer_p.php" method="POST">
+        <form action="./Process/loginmer_p.php" method="POST">
             <h2>Hotel Login</h2>
             <?php
             if (isset($_GET['login'])) {

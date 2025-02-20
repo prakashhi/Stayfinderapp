@@ -59,7 +59,7 @@ if (!isset($_SESSION['mname'])) {
             <div class="navbar">
                 <h1 class="name" class="h-div">
                     <img src="../Images/ham.svg" id="hambtn">
-                    </i> Merchant dashboard
+                    <span class="n1">Merchant Dashboard</span>
                 </h1>
                 <h2 class="uname">
                     <?php
@@ -124,7 +124,7 @@ if (!isset($_SESSION['mname'])) {
                         </div>
 
 
-                        <button type="submit">Update Room</button>
+                        <button type="submit">Add Room</button>
                     </form>
                 </div>
             </div>

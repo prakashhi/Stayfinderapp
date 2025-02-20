@@ -270,3 +270,11 @@ body {
 .amenity-item i {
     color: var(--secondary);
 }
+
+@media (max-width: 480px)
+{
+.hotel-container
+{
+    padding: 20px 9px;
+}
+}

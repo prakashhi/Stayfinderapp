@@ -75,3 +75,12 @@ button:hover {
 select:focus, input:focus {
     border-color: #E341F9;
 }
+@media only screen and (max-width: 480px)
+{
+    .card
+    {
+        padding: 10px;
+        margin: 5px;
+        overflow: auto;
+    }
+}

@@ -3,7 +3,6 @@ File name:-Admin_p.php -->
 <?php
 include 'cnn.php';
 
-
 $tb="a_register";
 
 $name=$_POST['l_name'];

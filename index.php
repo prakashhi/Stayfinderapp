@@ -16,8 +16,8 @@
 
     <nav>
       <div class="log">
-        <img src="Images/Stay Finder-logos.jpeg" alt="" width="40px" style="border-radius: 10px;">
-        <b>Stay Finder</b>
+        <img src="Images/Stay Finder-logos.webp" alt="" width="40px" style="border-radius: 5px;">
+        <b id='sty'>Stay Finder</b>
       </div>
       <div class="m">
         <ul>
@@ -25,7 +25,7 @@
           <?php
           session_start();
           if (isset($_SESSION['name'])) {
-            echo  "<li>" . $_SESSION['name'] . "</li>";
+            echo  "<a href='./Mybooking.php'><li>" . $_SESSION['name'] . "</li></a>";
             echo  "<a href='Process/logout.php'><li>Log out</li></a>";
           } else {
             echo "<a href='login.php'><li>Log in</li></a>";
@@ -35,6 +35,9 @@
         </ul>
       </div>
     </nav>
+   
+
+   
 
     <div class="serchnav">
       <form action="./index.php" method="POST">
@@ -44,6 +47,7 @@
     </div>
 
     <div class="alldata">
+
 
       <?php
 

@@ -178,12 +178,22 @@ a {
         font-size: 8px;
     }
 
-    .name span {
+    .name{
         font-size: 25px;
     }
 
     .right {
         height: auto;
     }
+
+    .n1 {
+        font-size: 15px;
+    }
+    #hambtn
+    {
+        width:18px;
+    }
+   
+
 
 }
