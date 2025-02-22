@@ -13,7 +13,6 @@
 <body>
   <div class="content">
 
-
     <nav>
       <div class="log">
         <img src="Images/Stay Finder-logos.webp" alt="" width="40px" style="border-radius: 5px;">
@@ -21,7 +20,6 @@
       </div>
       <div class="m">
         <ul>
-          <li>Home</li>
           <?php
           session_start();
           if (isset($_SESSION['name'])) {
@@ -31,7 +29,7 @@
             echo "<a href='login.php'><li>Log in</li></a>";
           }
           ?>
-          <li>About us</li>
+       
         </ul>
       </div>
     </nav>
@@ -143,7 +141,7 @@
     </div>
   </div>
 
-  </div>
+
 </body>
 
 </html>

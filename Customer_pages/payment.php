@@ -39,7 +39,7 @@ if (!isset($_SESSION['name'])) {
 
             <div class="form-group">
                 <label for="amount">Family Member</label>
-                <input type="number" id="Member" name="amount" value="1" required>
+                <input type="number" id="Member" name="amount" value="1" max="7" required>
             </div>
 
             <div class="form-group">

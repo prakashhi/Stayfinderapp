@@ -15,7 +15,15 @@
             <?php
                     if(isset($_GET['li']))
                     {
-                       echo "<h5 style='color:red;'>username already exists.</h5>";
+                       echo "<h5 style='color:red;text-align:left;'>Username Or Email already exists.</h5>";
+                    }
+                    if(isset($_GET['mo']))
+                    {
+                       echo "<h5 style='color:red;text-align:left;'>Mobile number must be exactly 10 digits.</h5>";
+                    }
+                    if(isset($_GET['po']))
+                    {
+                       echo "<h5 style='color:red;text-align:left;'>Password must be between 6 and 10 characters.</h5>";
                     }
             ?>
             <div class="input-feild">
@@ -28,7 +36,7 @@
             </div>
             
             <div class="input-feild">
-                <input type="password" required name="m_pass">
+                <input type="password"  id="pass" required min="6" max="10" name="m_pass">
                 <label>Password</label>
             </div>
             <h4>Hotel details:</h4>
@@ -40,7 +48,7 @@
                 <textarea name="h_address"  cols="30" rows="10" placeholder="Hotel Address" required></textarea>   
             </div>
             <div class="input-feild">
-                <input type="number" required name="h_mobile" maxlength="10">
+                <input type="number" required name="h_mobile" >
                 <label>Hotel Mobile no</label>
             </div>
             <div class="input-feild">
@@ -56,8 +64,7 @@
                 <label>Hotel IFSC Code</label>
             </div>
           
-            <button type="submit">Register</button>
-           
+            <button type="submit" >Register</button>
         </form>
     </div>
 </body>

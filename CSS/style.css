@@ -21,12 +21,14 @@ body {
 
 body::before {
     content: '';
-    position: absolute;
+    position: fixed; /* Keeps background fixed while scrolling */
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
-    background: url("../Images/tropical-beach-1.webp");
-    background-position: center;
+    background: url("../Images/tropical-beach-1.webp") no-repeat center center;
     background-size: cover;
+    z-index: -1; /* Sends it to the background */
 
 }
 
