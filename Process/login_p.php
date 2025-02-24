@@ -12,6 +12,10 @@ $li = mysqli_query($cnn,"Select * from `{$tb}` where Username ='$name'");
 $r = mysqli_fetch_array($li);
 $pass2 = $r['Password'];
 
+
+echo $pass2;
+
+
 $no = mysqli_num_rows($li);
 
     if($no == 1)

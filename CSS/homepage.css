@@ -125,8 +125,6 @@ button {
 .con {
   display: flex;
   margin-top: 15px;
-
-  background-color: #f6f6f9;
   margin: 10px;
   border-radius: 5px;
   border: 1px solid rgb(203, 200, 200);
@@ -160,26 +158,38 @@ button {
   color: black;
 
   font-size: 22px;
-  font-weight: bolder;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 900;
+  font-family: lato, sans-serif;
 }
 
 .h_address {
   display: flex;
-
+  margin-bottom: 25px;
   color: rgb(97, 97, 223);
   font-weight: bold;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.Room_type
+{
+  display: flex;
+  font-size: 16px;
+  /* margin: 61px; */
+  color: #5b9c3e;
+  font-weight: 900;
+  font-family: lato, sans-serif;
+
+
 }
 
 .h_price {
   display: flex;
   justify-content: end;
   font-size: 20px;
-  font-weight: bold;
-  margin: 61px;
+  /* margin: 61px; */
   color: #04010f;
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-family: lato, sans-serif;
+
 }
 
 @media only screen and (max-width: 700px) {
@@ -187,8 +197,9 @@ button {
     transition-duration: 0.5s;
     display: block;
   }
+
   .h_address,
-  .h_price {
+  .h_price{
     text-align: left;
   }
 
@@ -198,6 +209,20 @@ button {
     margin: 10px;
 
   }
+  .Room_type
+{
+  display: flex;
+  font-size: 16px;
+  color: #5b9c3e;
+  font-weight: 900;
+  font-family: lato, sans-serif;
+  justify-content: end;
+  margin-right: 25px;
+
+
+}
+
+
   .datcon {
     display: grid;
     gap: 6px;
@@ -237,7 +262,7 @@ button {
   .h_price {
     transition-duration: 0.5s;
     justify-content: flex-start;
-    margin: 10px;
+    margin: 4px;
 
   }
 

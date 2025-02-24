@@ -2,10 +2,8 @@
 .table-container {
   overflow: auto;
   margin: 10px;
-  background-color: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
   cursor: pointer;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

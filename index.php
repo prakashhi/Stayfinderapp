@@ -73,6 +73,8 @@
             <div class='datcon'>
               <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
               <span class='h_address'>" . $ho['Hotel_Address'] . "</span>
+              <span class='Room_type'>" . $dv['Room_type'] . "</span>
+              <span class='h_price'>" . $dv['Room_capacity'] . "</span>
               <span class='h_price'>₹ " . $dv['Price'] . "</span>
             </div>
           </div>

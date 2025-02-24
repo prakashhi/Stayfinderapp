@@ -26,15 +26,14 @@
         <div class="right">
             <div class="navbar">
                 <h1 class="name" class="h-div">
-                    <img src="./Images/ham.svg" id="hambtn">
-                    <span class="n1">Merchant Dashboard</span>
+             
+                    <span class="n1">My Dashboard</span>
                 </h1>
                 <h2 class="uname">
                     <?php
                    
-                    if (isset($_SESSION['mname'])) {
+                    if (isset($_SESSION['name'])) {
                         echo   "<span>" . $_SESSION['name'] . "</span>";
-                        echo  "<a href='../Process/logout.php'>Log out</a>";
                     }
                     ?>
                 </h2>

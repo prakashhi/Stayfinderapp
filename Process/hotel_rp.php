@@ -8,6 +8,14 @@ $u = uniqid("M", true);
 $name = $_POST['m_name'];
 $email = $_POST['m_email'];
 $pass = $_POST['m_pass'];
+$cpass = $_POST['cpass'];
+
+
+if($pass !== $cpass)
+{
+ header("location:../merchant_re.php?cpss");
+}
+
 $pass2 = password_hash($pass, PASSWORD_BCRYPT);
 
 $h = uniqid("H", true);
@@ -26,7 +34,7 @@ if($molen !== 10)
 {
     header("location:../merchant_re.php?mo=no");
 }
-elseif($paalen > 6 && $paalen < 10)
+elseif($paalen <= 6 || $paalen > 10)
 {
     header("location:../merchant_re.php?po=no");
 }
@@ -48,3 +56,4 @@ else
 }
 
 ?>
+

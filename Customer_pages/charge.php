@@ -88,8 +88,8 @@ if (isset($stripeResponse['id']))
     $adminSubject = "New Payment Alert";
     $adminMessage = "Dear Admin,\n\nA new payment of " . ($amount) . "₹ has been successfully processed. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: " . ($amount) . "₹ \nCustomer Email: " . $customerEmail . "\n\n Merchant ID: " . $m_id . "\n\nPlease review the transaction.";
     sendSMTPMail($adminEmail, $adminSubject, $adminMessage);
-
-    echo json_encode(["success" => true, "transaction_id" => $transactionId]);
+	
+    echo json_encode(["success" => true]);
     exit;
 } 
 else {

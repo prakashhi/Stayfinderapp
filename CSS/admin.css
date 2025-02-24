@@ -19,13 +19,15 @@ body {
 
 }
 body::before {
-    content: '';
-    position: absolute;
+	content: '';
+    position: fixed; /* Keeps background fixed while scrolling */
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
-    background: url("../Images/photo-1519389950473-47ba0277781c.webp");
-    background-position: center;
+    background: url("../Images/photo-1519389950473-47ba0277781c.webp") no-repeat center center;
     background-size: cover;
+    z-index: -1; /* Sends it to the background */
 }
 
 

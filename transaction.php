@@ -141,7 +141,7 @@
                     <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
                     <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
                     <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
-                    <td><span id='data'>Amount :</span>" . $d['Amount'] . "</td>
+                    <td><span id='data'>Amount :</span>" . $d['Amount'] . " ₹ </td>
                     <td><span id='data'>Transaction_Date :</span>" . $d['Transaction_Date'] . "</td>
                     </tr>
                 </tbody>";
@@ -188,7 +188,7 @@
                     <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
                     <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
                     <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
-                    <td><span id='data'>Amount :</span>" . $d['Amount'] . "</td>
+                    <td><span id='data'>Amount :</span>" . $d['Amount'] . " ₹ </td>
                     <td><span id='data'>Transaction_Date :</span>" . $d['Transaction_Date'] . "</td>
                     </tr>
                 </tbody>";
