@@ -42,7 +42,7 @@
                 <label>Email</label>
             </div>
             <div class="input-feild">
-                <input type="text" name="r_mobile" required>
+                <input type="number" name="r_mobile" required>
                 <label>Mobile no</label>
             </div>
             <div class="input-feild">

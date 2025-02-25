@@ -36,8 +36,12 @@
                 <input type="password" name="l_pass" required>
                 <label>Password</label>
             </div>
+            
 
             <button type="submit">Log In</button>
+            <div class="for">
+                <a href="./Customer_pages/forgot.php"><label>Forgot password</label></a>
+            </div>
             <div class="acc-opc">
                 <p>Don't have an account ?<a href="register.php">Register</a></p>
             </div>

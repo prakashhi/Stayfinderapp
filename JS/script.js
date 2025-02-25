@@ -12,3 +12,6 @@ let mer = document.querySelector("#mer").addEventListener("click", () => {
 })
 
 
+
+
+
