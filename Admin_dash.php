@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,13 +121,25 @@
                         echo "<tbody>
                     <tr>
                     <td><span id='data'>U_id : </span>" . $d['Um_id'] . "</td>
-                    <td><span id='data'>Username : </span>" . $d['Username'] . "</td>
-                    <td><span id='data'>Email : </span>" . $d['Email'] . "</td>
-                    <td><span id='data'>Hotel_id : </span>" . $d['Hotel_id'] . "</td>
-                    <td><span id='data'>Hotel_Name : </span>" . $d['Hotel_Name'] . "</td>
-                    <td><span id='data'>Hotel_Address : </span>" . $d['Hotel_Address'] . "</td>
-                    <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>
-                    </tr>
+                                <td><span id='data'>Username : </span>" . $d['Username'] . "</td>
+                                <td><span id='data'>Email : </span>" . $d['Email'] . "</td>
+                                <td><span id='data'>Hotel_id : </span>" . $d['Hotel_id'] . "</td>
+                                <td><span id='data'>Hotel_Name : </span>" . $d['Hotel_Name'] . "</td>
+                                <td><span id='data'>Hotel_Address : </span>" . $d['Hotel_Address'] . "</td>
+                                <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>";
+                                $s = $d['Verify_status'];
+                                $i = $d['Um_id'];
+
+                                if($s == "Not Verify")
+                                {
+                                    echo "<td><span id='data'>Verify_status: </span><a id='ver' href='./Process/verify.php?id=$i'>V-Now</a></td>";
+                                }
+                                else
+                                {
+                                    echo "<td><span id='data'>Verify_status: </span><a id='ver' href=''>Verified</a></td>";
+                                }
+                                
+                            "</tr>
                 </tbody>";
                     }
                     echo "</table></div>";
@@ -152,6 +166,7 @@
                                 <th>Hotel_Name</th>
                                 <th>Hotel_Address</th>
                                 <th>Hotel_Mobileno</th>
+                                <th>Verify Status</th>
                             </tr>
                         </thead>";
                 while ($d = mysqli_fetch_assoc($data)) {
@@ -163,8 +178,20 @@
                                 <td><span id='data'>Hotel_id : </span>" . $d['Hotel_id'] . "</td>
                                 <td><span id='data'>Hotel_Name : </span>" . $d['Hotel_Name'] . "</td>
                                 <td><span id='data'>Hotel_Address : </span>" . $d['Hotel_Address'] . "</td>
-                                <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>
-                            </tr>
+                                <td><span id='data'>Hotel_Mobileno : </span>" . $d['Hotel_Mobileno'] . "</td>";
+                                $s = $d['Verify_status'];
+                                $i = $d['Um_id'];
+
+                                if($s == "Not Verify")
+                                {
+                                    echo "<td><span id='data'>Verify_status: </span><a id='ver' href='./Process/verify.php?id=$i'>V-Now</a></td>";
+                                }
+                                else
+                                {
+                                    echo "<td><span id='data'>Verify_status: </span><a id='ver' href=''>Verified</a></td>";
+                                }
+                                
+                            "</tr>
                         </tbody>";
                 }
             }

@@ -15,7 +15,7 @@
             <?php
                     if(isset($_GET['li']))
                     {
-                       echo "<h5 style='color:red;text-align:left;'>Username Or Email already exists.</h5>";
+                       echo "<h5 style='color:red;text-align:left;'>Username already exists.</h5>";
                     }
                     if(isset($_GET['mo']))
                     {

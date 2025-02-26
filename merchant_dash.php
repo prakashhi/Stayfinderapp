@@ -93,9 +93,14 @@
                     <td><span id='data'>AC / NOAC :</span>" . $d['AC / NOAC'] . "</td>
                     <td><span id='data'>Price :</span>" . $d['Price'] . " ₹</td>
                     <td><span id='data'>Room_capacity :</span>" . $d['Room_capacity'] . "</td>
-                    <td><span id='data'>Booking_status :</span>" . $d['Booking_status'] . "</td>
-                    <td><a href='./Merchant_pages/room_de.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
-                </tr>
+                    <td><span id='data'>Booking_status :</span>" . $d['Booking_status'] . "</td>";
+                    $st = $d['Booking_status'];
+                    if( $st == "Open")
+                    {
+                        echo "<td><a href='./Merchant_pages/room_de.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>";
+                    }
+                    
+                "</tr>
             </tbody>";
 
             }

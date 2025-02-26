@@ -94,7 +94,7 @@ i {
     border-radius: 5px;
     margin: 4px;
     box-shadow: 0 0.5rem 1rem #acacac;
-	background-color: #f6f6f9;
+    background-color: #f6f6f9;
 
 }
 
@@ -140,6 +140,15 @@ a {
     font-size: 16px;
 }
 
+#ver {
+    padding: 10px 18px;
+    color: white;
+
+    border-radius: 10px;
+    background-color: #4e66be;
+    box-shadow: #8d8c93;
+}
+
 @media only screen and (max-width: 768px) {
     * {
         transition-duration: 0.5s;
@@ -179,7 +188,7 @@ a {
         font-size: 8px;
     }
 
-    .name{
+    .name {
         font-size: 25px;
     }
 
@@ -190,11 +199,11 @@ a {
     .n1 {
         font-size: 15px;
     }
-    #hambtn
-    {
-        width:18px;
+
+    #hambtn {
+        width: 18px;
     }
-   
+
 
 
 }

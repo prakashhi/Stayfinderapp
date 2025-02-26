@@ -1,26 +1,38 @@
 <?php
+require '../Process/cnn.php';
 
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    $npass=$_POST['n_pass'];
-    $cpass=$_POST['c_pass'];
+if (!isset($_SESSION['code']) || time() > $_SESSION['code_expiry']) {
+    // Reset the session code and expiry, and redirect to login page
+    unset($_SESSION['code']);
+    unset($_SESSION['code_expiry']);
+    header("Location:../login.php"); // Redirect to login page
+    exit();
+}
+
+unset($_SESSION['errors']);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $npass = $_POST['n_pass'];
+    $cpass = $_POST['c_pass'];
 
     $lpass = strlen($npass);
 
-    unset($_SESSION['errors']);
-
-    if($npass !== $cpass)
-    {
-        // $no ="no";
+    if ($npass !== $cpass) {
         $_SESSION['errors']['password_mismatch'] = "Password and Confirm password do not match.";
-    
-    }
-    elseif($lpass <= 6 || $lpass > 10)
-    {
+    } elseif ($lpass <= 6 || $lpass > 10) {
         $_SESSION['errors']['password_length'] = "Password must be between 6 and 10 characters.";
-    }
+    } else {
 
+        $email = $_SESSION['email'];
+        $pass2 = password_hash($npass, PASSWORD_BCRYPT);
+        $d = mysqli_query($cnn, "UPDATE c_register SET Password = '$pass2' WHERE Email ='$email' ");
+        if($d)
+        {
+            header("location:../login.php");
+        }
+    }
 }
 
 

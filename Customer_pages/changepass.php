@@ -1,9 +1,19 @@
 <?php
 session_start();
+
+unset($_SESSION['errors']);
+
+if (!isset($_SESSION['code']) || time() > $_SESSION['code_expiry']) {
+    // Reset the session code and expiry, and redirect to login page
+    unset($_SESSION['code']);
+    unset($_SESSION['code_expiry']);
+    header("Location:../login.php"); // Redirect to login page
+    exit();
+}
+
 if(!isset($_SESSION['code']))
 {
     header("location:./forgot.php");
-
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -13,14 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if($coder == $code)
     {
-        header("location:newpass.php");
+        header("location:./newpass.php");
+    }
+    else
+    {
+        $_SESSION['errors']['password_mismatch'] = "OTP is invalid";
     }
 
 }
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,16 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         <form action="./changepass.php" method="POST">
 
         <h3>Reset Password</h3>
-
-            <?php
-            if (isset($no)) {
-                echo "<h5 style='color:red;text-align:left;'>Email is Not exits.</h5>";
+        <?php
+            if (isset($_SESSION['errors'])) {
+                foreach ($_SESSION['errors'] as $error) {
+                    echo "<h5 style='color:red;text-align:left;'>$error</h5>";
+                }
             }
-
             ?>
-
-
-
             <div class="input-feild">
                 <input type="text" name="code" required>
                 <label>Enter Code</label>

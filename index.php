@@ -53,8 +53,7 @@
       include './Process/cnn.php';
    
 
-
-          $d = mysqli_query($cnn, "select * from room_list where Booking_status = 'Open' ");
+      $d = mysqli_query($cnn, "select * from room_list where Booking_status = 'Open' ");
       while ($dv = mysqli_fetch_array($d)) {
 
         $hid = $dv['Hotel_id'];
@@ -62,7 +61,7 @@
 
       if(!array_key_exists('serchbtn',$_POST))
       {
-        $data = mysqli_query($cnn, "select * from m_register where Hotel_id = '$hid' ");
+        $data = mysqli_query($cnn, "select * from m_register where Hotel_id = '$hid' AND Verify_status ='Verified' ");
 
         while ($ho = mysqli_fetch_array($data)) {
           $imgurl = $dv['Room_img1'];
@@ -117,9 +116,11 @@
                 <div class='con'>
                   <img class='imgcon' src='./Hotel_img/$imgurl'>
                   <div class='datcon'>
-                    <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
-                    <span class='h_address'>" . $ho['Hotel_Address'] . "</span>
-                    <span class='h_price'>₹ " . $dv['Price'] . "</span>
+                  <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
+                  <span class='h_address'>" . $ho['Hotel_Address'] . "</span>
+                  <span class='Room_type'>" . $dv['Room_type'] . "</span>
+                  <span class='h_price'>" . $dv['Room_capacity'] . "</span>
+                  <span class='h_price'>₹ " . $dv['Price'] . "</span>
                   </div>
                 </div>
               </a>";

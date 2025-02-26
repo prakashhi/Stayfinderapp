@@ -1,12 +1,21 @@
 <?php
+include '../Process/cnn.php';
 session_start();
 if (!isset($_SESSION['name'])) {
     header("location:../login.php");
 }
 
+$r_dg = $_GET['id'];
+
+$df = mysqli_query($cnn,"select * from booking_list where Room_id = '$r_dg' ");
+
+$li = mysqli_num_rows($df);
+if($li == 1)
+{
+    header("location:../index.php");
+}
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +33,10 @@ if (!isset($_SESSION['name'])) {
     <div class="form-container">
         <h2>Payment</h2>
         <form id="payment-form">
-
+            <div id="error-message" style="color:red;"></div>
             <?php echo "<span style='display:none;'>Room_id : <b id='r_id' >" . $_GET['id'] . "</b></span><br>" ?>
             <?php echo "<span style='display:none;'>Hotel_id : <b id='h_id'>" . $_GET['hid'] . "</b></span>" ?>
+           
             <div class="form-group">
                 <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" name="full-name" required>
@@ -61,12 +71,9 @@ if (!isset($_SESSION['name'])) {
             </div>
 
 
-            <input type="submit" value="Pay Now">
+            <input id="btns" type="submit" value="Pay Now">
 
-
-
-
-            <div id="error-message" style="color:red;"></div>
+            
         </form>
     </div>
 
@@ -90,8 +97,16 @@ if (!isset($_SESSION['name'])) {
 
             let total = p * diff_day;
             if (total <= 0) {
-                window.location.href = "../index.php";
-            } else {
+                document.getElementById("btns").style.display = "none";
+                document.getElementById('error-message').innerHTML = "Invalid Dates.";
+            } 
+            else if(diff_day > 30)
+            {
+                document.getElementById("btns").style.display = "none";
+                document.getElementById('error-message').innerHTML = "The maximum duration for a hotel stay is 30 days.";
+
+            }
+            else {
                 document.getElementById("price").innerHTML = total;
             }
 
@@ -149,8 +164,17 @@ if (!isset($_SESSION['name'])) {
                             r_id: r_id,
                             h_id: h_id
                         })
-                    })
-                    .then(window.location.href = "../index.php") // Convert response to JSON
+                    }).then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          window.location.href = "../index.php"; // Redirect to success page
+                      } else {
+                          document.getElementById('error-message').textContent = data.message; // Show any errors
+                          submitButton.value = "Pay Now";
+                          submitButton.disabled = false;
+                      }
+                  });
+                   
                    
             }
         });

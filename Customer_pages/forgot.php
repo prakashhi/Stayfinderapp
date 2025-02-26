@@ -1,5 +1,8 @@
 <?php
-include '../Process/cnn.php';
+require '../Process/cnn.php';
+include '../Customer_pages/email.php';
+
+unset($_SESSION['errors']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -11,19 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $reset_code = rand(100000, 999999);
         session_start();
         $_SESSION['code'] = $reset_code;
+        $_SESSION['email'] = $email;
 
-        $df = sendSMTPMail($email,"Reset Passwod","Heloo User,\n This OTP for change Password:$reset_code");
+        // Store the current timestamp as expiration time (2 minutes from now)
+        $_SESSION['code_expiry'] = time() + 120; // 120 seconds = 2 minutes
 
-        header("location:changepass.php");
+        $df = sendSMTPMail($email, "Reset Password", "Hello User,\nThis OTP for changing your password: $reset_code");
+
+        if ($df) {
+            header("location:changepass.php");
+        }
     } else {
-        $_SESSION['errors']['password_mismatch'] = "Email is not exits.";
+        $_SESSION['errors']['password_mismatch'] = "Email does not exist.";
     }
 }
-
-
-
-
-
 
 ?>
 
@@ -42,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="loginwraper">
         <form action="./forgot.php" method="POST">
 
-        <h3>Reset Password</h3>
+            <h3>Reset Password</h3>
 
             <?php
             if (isset($_SESSION['errors'])) {
@@ -65,48 +69,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
-<?php
-function sendSMTPMail($to, $subject, $message) {
-
-    require_once  '../PHPMailer-master/src/Exception.php';
-    require_once  '../PHPMailer-master/src/PHPMailer.php';
-    require_once  '../PHPMailer-master/src/SMTP.php';
-    
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    
-    try {
-        // Set PHPMailer to use SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Gmail SMTP server
-        $mail->SMTPAuth = true;
-        $mail->Username = 'ecommerce3112003@gmail.com';  // Gmail email address (your email)
-        $mail->Password = 'svut kclu snrd rqdb';  // Gmail email password or App password
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;  // Gmail SMTP port
-
-        // Sender information
-        $mail->setFrom('your-email@gmail.com', 'StayFinderTeam');
-        $mail->addReplyTo('noreply@gmail.com', 'StayFinderTeam');
-        
-        // Recipient
-        $mail->addAddress($to);
-
-        // Email content
-        $mail->isHTML(false);  // Use plain text email format
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
-
-        // Send email
-        if (!$mail->send()) {
-            error_log("Mailer Error: " . $mail->ErrorInfo);
-            return false;
-        } else {
-            return true;
-        }
-    } catch (Exception $e) {
-        error_log("Mailer Error: " . $mail->ErrorInfo);
-        return false;
-    }
-}
-?>

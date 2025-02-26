@@ -1,8 +1,8 @@
 <?php
-
-
 session_start();
 include '../Process/cnn.php';
+include '../Customer_pages/email.php';
+
 header('Content-Type: application/json');
 
 // Get the JSON input from the front-end
@@ -56,6 +56,7 @@ if (isset($stripeResponse['id']))
     $mdata = mysqli_query($cnn, "SELECT * FROM m_register WHERE Hotel_id = '$h_id'");
     $m1data = mysqli_fetch_array($mdata);
     $m_id = $m1data['Um_id'];
+    $m_name = $m1data['Hotel_Name'];
 
     // Payment successful
     $transactionId = $stripeResponse['id'];
@@ -67,7 +68,17 @@ if (isset($stripeResponse['id']))
 
     // Transaction details for the customer email
     $subject = "Payment Successful";
-    $message = "Dear $fullName,\n\nYour payment of " . ($amount) . "₹ was successfully processed.\n\nYour Payment ID: " . $pay_id . "\n\nTransaction ID: " . $transactionId . "\n\nRoom ID: " . $r_id . "\n\nDate of Booking: " . $check_in . " To " . $check_out . "\n\nThank you for your Booking!";
+    $message = "Dear $fullName,\n\n"
+    . "We are pleased to inform you that your payment of ₹" . $amount . " has been successfully processed.\n\n"
+    . "Please find the details of your transaction below:\n\n"
+    . "Payment ID: " . $pay_id . "\n"
+    . "Transaction ID: " . $transactionId . "\n"
+    . "Room ID: " . $r_id . "\n"
+    . "Booking Dates: " . $check_in . " to " . $check_out . "\n\n"
+    . "Thank you for choosing us. We look forward to hosting you!\n\n"
+    . "If you have any questions or need further assistance, feel free to contact us.\n\n"
+    . "Best regards,\n"
+    . "The [Hotel/ ".$m_name." ] Team";
     
     sendSMTPMail($customerEmail, $subject, $message);
 
@@ -81,68 +92,43 @@ if (isset($stripeResponse['id']))
 
     // Send email to the merchant
     $merchantSubject = "New Payment Received";
-    $merchantMessage = "Dear Merchant,\n\nA new payment of " . ($amount) . "₹ has been received. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: " . ($amount) . "₹ \n\nCustomer ID: " . $g . " \n\nCustomer Email: " . $customerEmail;
+    $merchantMessage = "Dear Merchant,\n\n"
+    . "We are pleased to inform you that a new payment of ₹" . $amount . " has been successfully received.\n\n"
+    . "Here are the payment details:\n"
+    . "-------------------------------------\n"
+    . "Transaction ID: " . $transactionId . "\n"
+    . "Amount: ₹" . $amount . "\n"
+    . "Customer ID: " . $g . "\n"
+    . "Customer Email: " . $customerEmail . "\n"
+    . "-------------------------------------\n\n"
+    . "If you require any further assistance, please feel free to contact us.\n\n"
+    . "Best regards,\n"
+    . "The [Stay Finder] Team";
     sendSMTPMail($merchantEmail, $merchantSubject, $merchantMessage);
 
     // Send email to the admin
     $adminSubject = "New Payment Alert";
-    $adminMessage = "Dear Admin,\n\nA new payment of " . ($amount) . "₹ has been successfully processed. Here are the details:\n\nTransaction ID: " . $transactionId . "\nAmount: " . ($amount) . "₹ \nCustomer Email: " . $customerEmail . "\n\n Merchant ID: " . $m_id . "\n\nPlease review the transaction.";
-    sendSMTPMail($adminEmail, $adminSubject, $adminMessage);
-	
-    echo json_encode(["success" => true]);
-    exit;
+    $adminMessage = "Dear Admin,\n\n"
+    . "We are pleased to inform you that a new payment of ₹" . $amount . " has been successfully processed.\n\n"
+    . "Please find the transaction details below:\n"
+    . "-------------------------------------\n"
+    . "Transaction ID: " . $transactionId . "\n"
+    . "Amount: ₹" . $amount . "\n"
+    . "Customer Email: " . $customerEmail . "\n"
+    . "Merchant ID: " . $m_id . "\n"
+    . "-------------------------------------\n\n"
+    . "Kindly review the transaction at your earliest convenience.\n\n"
+    . "Best regards,\n"
+    . "The [Company Name] Team";
+   $d =  sendSMTPMail($adminEmail, $adminSubject, $adminMessage);
+
+    if($d)
+    {
+        echo json_encode(["success" => true]); 
+    }
 } 
 else {
     // Payment failed
     echo json_encode(["error" => $stripeResponse['error']['message']]);
     exit;
 }
-
-
-
-// Function to send email using PHPMailer and Gmail's SMTP
-function sendSMTPMail($to, $subject, $message) {
-
-    require_once  '../PHPMailer-master/src/Exception.php';
-    require_once  '../PHPMailer-master/src/PHPMailer.php';
-    require_once  '../PHPMailer-master/src/SMTP.php';
-    
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    
-    try {
-        // Set PHPMailer to use SMTP
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Gmail SMTP server
-        $mail->SMTPAuth = true;
-        $mail->Username = 'ecommerce3112003@gmail.com';  // Gmail email address (your email)
-        $mail->Password = 'svut kclu snrd rqdb';  // Gmail email password or App password
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;  // Gmail SMTP port
-
-        // Sender information
-        $mail->setFrom('your-email@gmail.com', 'StayFinderTeam');
-        $mail->addReplyTo('noreply@gmail.com', 'StayFinderTeam');
-        
-        // Recipient
-        $mail->addAddress($to);
-
-        // Email content
-        $mail->isHTML(false);  // Use plain text email format
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
-
-        // Send email
-        if (!$mail->send()) {
-            error_log("Mailer Error: " . $mail->ErrorInfo);
-            return false;
-        } else {
-            return true;
-        }
-    } catch (Exception $e) {
-        error_log("Mailer Error: " . $mail->ErrorInfo);
-        return false;
-    }
-}
-?>
-

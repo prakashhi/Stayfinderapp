@@ -154,6 +154,7 @@
                                 <th>Checkin_Date</th>
                                 <th>Checkout_Date</th>
                                 <th>Amount</th>
+                                <th>Cancel Booking</th>
                             </tr>
                         </thead>";
 
@@ -175,6 +176,7 @@
                         <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
                         <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
                         <td><span id='data'>Amount:</span>" . $d['Amount'] . " ₹ </td>
+                        <td><span id='data'>Verify_status: </span><a id='ver' href='./Process/verify.php?id=$i'>V-Now</a></td>
                     </tr>
                 </tbody>";
                 }

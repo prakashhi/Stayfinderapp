@@ -40,14 +40,14 @@ elseif($paalen <= 6 || $paalen > 10)
 }
 else
 {
-    $li = mysqli_query($cnn, "Select * from `{$tb}` where Username ='$name' OR Email='$email'");
+    $li = mysqli_query($cnn, "Select * from `{$tb}` where Username ='$name'");
 
     $no = mysqli_num_rows($li);
 
     if ($no == 1) {
         header("location:../merchant_re.php?li=no");
     } else {
-        mysqli_query($cnn, "insert into `{$tb}` values('$u','$name','$email','$pass2','$h','$hname','$hadd','$hmobile','$hbank','$hbno','$hcode')");
+        mysqli_query($cnn, "insert into `{$tb}` values('$u','$name','$email','$pass2','$h','$hname','$hadd','$hmobile','$hbank','$hbno','$hcode','Not Verify')");
 
         header("location:../merchant_l.php");
     
