@@ -175,8 +175,10 @@
                         <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
                         <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
                         <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
-                        <td><span id='data'>Amount:</span>" . $d['Amount'] . " ₹ </td>
-                        <td><span id='data'>Verify_status: </span><a id='ver' href='./Process/verify.php?id=$i'>V-Now</a></td>
+                        <td><span id='data'>Amount:</span>" . $d['Amount'] . " ₹ </td>";
+                        $i = $d['Payment_id'];
+                
+                        echo "<td><span id='data'>Verify_status: </span><a id='ver' href='./Customer_pages/cancelbook.php?id=$i'>Cancel</a></td>
                     </tr>
                 </tbody>";
                 }
