@@ -32,6 +32,9 @@
             </div>
           
             <button type="submit">Log In</button>
+            <div class="for">
+                <a href="./Merchant_pages/forgot_m.php"><label>Forgot password</label></a>
+            </div>
             <div class="acc-opc">
                 <p>Don't have an account ?<a href="merchant_re.php">Register</a></p>
             </div>

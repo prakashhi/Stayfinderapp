@@ -39,6 +39,7 @@
 .right {
     width: 100vw;
     box-shadow: 0 0.5rem 1rem #D4D4D4;
+    height: 100vw;
 }
 
 .logo p,
@@ -193,7 +194,7 @@ a {
     }
 
     .right {
-        height: auto;
+        height: 100vh;
     }
 
     .n1 {
@@ -203,6 +204,7 @@ a {
     #hambtn {
         width: 18px;
     }
+    
 
 
 

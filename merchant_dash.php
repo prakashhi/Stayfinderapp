@@ -38,6 +38,11 @@
                         Booking List
                     </li>
                 </a>
+                <a href="./Merchant_pages/discount_room.php">
+                    <li>
+                        Discount_Room
+                    </li>
+                </a>
             </div>
         </div>
 
@@ -52,8 +57,11 @@
                     <?php
                     session_start();
                     if (isset($_SESSION['mname'])) {
-                        echo   "<span>" . $_SESSION['mname'] . "</span>";
-                        echo  "<a href='./Process/logout.php'>Log out</a>";
+                        echo   "<a href='./Merchant_pages/editprofile.php'><span>" . $_SESSION['mname'] . "</span></a>";
+                        $u = uniqid("Exp_M", true);
+                        $_SESSION['expire_m'] = $u;
+                        echo "<a href='Process/logout.php?merchant=$u'>Log out</a>";
+    
                     } else {
                         header("location:merchant_l.php");
                     }
@@ -81,11 +89,23 @@
                             <th>Room_capacity</th>
                             <th>Booking_status</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>";
 
             while ($d = mysqli_fetch_assoc($dv)) {
                 $id = $d['Room_id']; 
+
+                $ddata = mysqli_query($cnn,"select * from  discount_list where Room_id = '$id' ");
+                $li = mysqli_num_rows($ddata);
+                if($li >=1)
+                {
+                    $discount = mysqli_fetch_array($ddata);
+
+                }
+                
+
+
                 echo "<tbody>
                 <tr>
                     <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
@@ -95,10 +115,19 @@
                     <td><span id='data'>Room_capacity :</span>" . $d['Room_capacity'] . "</td>
                     <td><span id='data'>Booking_status :</span>" . $d['Booking_status'] . "</td>";
                     $st = $d['Booking_status'];
-                    if( $st == "Open")
+                    if($st == "Booked" || $st == "Canceled")
                     {
+                        echo "<td></td>";
+                    }
+                    else{
                         echo "<td><a href='./Merchant_pages/room_de.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>";
                     }
+                    
+                    if($li>=1)
+                    {
+                        echo "<td><span id='data'>Room_capacity :</span>" . $discount['Percentage'] . " % Off</td>";
+                    }
+                    
                     
                 "</tr>
             </tbody>";

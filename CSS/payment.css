@@ -72,3 +72,13 @@ input[type="submit"]:hover {
 .form-footer a:hover {
     text-decoration: underline;
 }
+
+
+@media only screen and (max-width: 768px)
+{
+    .form-container
+    {
+        margin: 10px;
+    }
+
+}

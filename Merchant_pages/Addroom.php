@@ -51,6 +51,11 @@ if (!isset($_SESSION['mname'])) {
                         Booking List
                     </li>
                 </a>
+                <a href="../Merchant_pages/discount_room.php">
+                    <li>
+                        Discount_Room
+                    </li>
+                </a>
             </div>
         </div>
 
@@ -65,8 +70,10 @@ if (!isset($_SESSION['mname'])) {
                     <?php
 
                     if (isset($_SESSION['mname'])) {
-                        echo   "<span>" . $_SESSION['mname'] . "</span>";
-                        echo  "<a href='../Process/logout.php'>Log out</a>";
+                        echo   "<a href='../Merchant_pages/editprofile.php'><span>" . $_SESSION['mname'] . "</span></a>";
+                        $u = uniqid("Exp_M", true);
+                        $_SESSION['expire_m'] = $u;
+                        echo  "<a href='../Process/logout.php?merchant=$u'>Log out</a>";
                     } else {
                         header("location:merchant_l.php");
                     }

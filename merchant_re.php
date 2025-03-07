@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,21 +14,10 @@
         <form action="Process/hotel_rp.php" method="POST">
             <h2>Register</h2>
             <?php
-                    if(isset($_GET['li']))
-                    {
-                       echo "<h5 style='color:red;text-align:left;'>Username already exists.</h5>";
-                    }
-                    if(isset($_GET['mo']))
-                    {
-                       echo "<h5 style='color:red;text-align:left;'>Mobile number must be exactly 10 digits.</h5>";
-                    }
-                    if(isset($_GET['po']))
-                    {
-                       echo "<h5 style='color:red;text-align:left;'>Password must be between 6 and 10 characters.</h5>";
-                    }
-                    if(isset($_GET['cpss']))
-                    {
-                       echo "<h5 style='color:red;text-align:left;'>Password and Confirm password do not match.</h5>";
+            session_start(); 
+                    if (isset($_SESSION['error'])) {
+                        echo "<div style='color: red;text-align:left;'>" . $_SESSION['error'] . "</div>";
+                        unset($_SESSION['error']); // Remove the message after displaying it
                     }
             ?>
             <div class="input-feild">
@@ -44,7 +34,7 @@
                 <label>Password</label>
             </div>
             <div class="input-feild">
-                <input type="password"  id="cpass" required min="6" max="10" name="m_pass">
+                <input type="password"  id="cpass" required min="6" max="10" name="c_pass">
                 <label>Confirm Password</label>
             </div>
             <h4>Hotel details:</h4>

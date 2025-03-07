@@ -13,7 +13,7 @@ function sendSMTPMail($to, $subject, $message) {
         $mail->Host = 'smtp.gmail.com';  // Gmail SMTP server
         $mail->SMTPAuth = true;
         $mail->Username = 'ecommerce3112003@gmail.com';  // Gmail email address (your email)
-        $mail->Password = 'svut kclu snrd rqdb';  // Gmail email password or App password
+        $mail->Password = 'abcy pzlb bhro qjiv';  // Gmail email password or App password
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;  // Gmail SMTP port
 

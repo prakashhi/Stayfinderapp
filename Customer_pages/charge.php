@@ -87,7 +87,8 @@ if (isset($stripeResponse['id']))
     $cdata = mysqli_fetch_array($c);
     $g = $cdata['Uc_id'];
     $t = Date('Y-m-d H:i:s');
-    mysqli_query($cnn, "INSERT INTO `booking_list` VALUES ('$pay_id','$r_id','$g','$fullName','$h_id','$Member','$check_in','$check_out','$amount','$t')");
+
+    mysqli_query($cnn, "INSERT INTO `booking_list` VALUES ('$pay_id','$r_id','$g','$fullName','$h_id','$Member','$check_in','$check_out','$amount','$t','Booked')");
     mysqli_query($cnn, "UPDATE room_list SET Booking_status = 'Booked' WHERE Room_id = '$r_id'");
 
     // Send email to the merchant

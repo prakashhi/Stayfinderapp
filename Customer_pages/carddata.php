@@ -1,7 +1,17 @@
 <?php
 session_start();
+include '../Process/cnn.php';
 if (!isset($_SESSION['name'])) {
     header("location:../login.php");
+}
+
+$r_dg = $_GET['id'];
+
+$df = mysqli_query($cnn, "select * from booking_list where Room_id = '$r_dg' ");
+
+$li = mysqli_num_rows($df);
+if ($li == 1) {
+    header("location:../index.php");
 }
 
 ?>
@@ -19,6 +29,7 @@ if (!isset($_SESSION['name'])) {
     <title>Hotel information</title>
 </head>
 
+
 <body>
     <a href=""></a>
 
@@ -30,9 +41,30 @@ if (!isset($_SESSION['name'])) {
 
     $dv = mysqli_query($cnn, "Select * from room_list where Room_id = '$id' ");
 
-
-
+    $line = mysqli_num_rows($dv);
     $d = mysqli_fetch_array($dv);
+    if($line == 0)
+    {
+        header("location:../index.php");
+    }
+
+
+    $ddata  = mysqli_query($cnn,"select * from discount_list where Room_id ='$id' ");
+    if(mysqli_num_rows($ddata) == 0)
+    {
+        $price =  $d['Price'];
+    }
+    else{
+        $discount  = mysqli_fetch_array($ddata);
+        $price = $d['Price'] - (($d['Price']*$discount['Percentage']))/100;
+
+    }
+
+
+
+
+    
+    
 
     $hid = $d['Hotel_id'];
     $imgurl1 = $d['Room_img1'];
@@ -62,9 +94,7 @@ if (!isset($_SESSION['name'])) {
         </div>
         <div class='navigation-dots'></div>
     </div>
-    
-
-        <div class='price-tag'>From " . $d['Price'] . " ₹ /night</div>
+        <div class='price-tag'>From " . $price . " ₹ /night</div>
     </div>
     
     <div class='hotel-content'>
@@ -102,10 +132,10 @@ if (!isset($_SESSION['name'])) {
             </div>
         </div>";
 
-        $p = $d['Price'];
+ 
         $hid = $hd['Hotel_id'];
 
-        echo "<a style='text-decoration:none;' class='book-button' href='./payment.php?price=$p&&id=$id&&hid=$hid'>
+        echo "<a style='text-decoration:none;' class='book-button' href='./payment.php?id=$id&&hid=$hid'>
             <i class='fas fa-concierge-bell'></i>
             Reserve Now
         </a>

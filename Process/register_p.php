@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 
 include 'cnn.php';
 $tb = "c_register";
@@ -13,19 +14,30 @@ $cpass = $_POST['c_pass'];
 
 $molen = strlen($mobile);
 $paalen = strlen($pass);
-
+$namelen = strlen($name);
 
 
 if ($pass !== $cpass) {
-    header("location:../register.php?cpss=no");
+    $_SESSION['error'] = "Password and Confirm password do not match.";
+    header("location:../register.php");
+    exit();
 }
 elseif($molen !== 10)
 {
-    header("location:../register.php?mo=no");
+    $_SESSION['error'] = "Mobile number must be exactly 10 digits.";
+    header("location: ../register.php");
+    exit();
 }
 elseif($paalen <= 6 || $paalen > 10)
 {
-    header("location:../register.php?po=no");
+    $_SESSION['error'] = "Password must be between 6 and 10 characters.";
+    header("location: ../register.php");
+    exit();
+}
+elseif($namelen >= 20 ){
+    $_SESSION['error'] = "Username must be between 6 and 20 characters.";
+    header("location: ../register.php");
+    exit();
 }
 
 else {
@@ -38,7 +50,9 @@ else {
     $no = mysqli_num_rows($li);
 
     if ($no == 1) {
-        header("location:../register.php?li=no");
+        $_SESSION['error'] = "Username Or Email already exists.";
+        header("location: ../register.php");
+        exit();
     } else {
         mysqli_query($cnn, "insert into `{$tb}` values('$u','$name','$email','$mobile','$pass2')");
         header("location:../login.php");

@@ -24,6 +24,7 @@ $no = mysqli_num_rows($li);
         {           
             session_start();
             $_SESSION['name']=$name;
+            $_SESSION['ucid']=$r['Uc_id'];
             header("location:../index.php");
         }  
         else

@@ -7,11 +7,10 @@ if (!isset($_SESSION['name'])) {
 
 $r_dg = $_GET['id'];
 
-$df = mysqli_query($cnn,"select * from booking_list where Room_id = '$r_dg' ");
+$df = mysqli_query($cnn, "select * from booking_list where Room_id = '$r_dg' ");
 
 $li = mysqli_num_rows($df);
-if($li == 1)
-{
+if ($li == 1) {
     header("location:../index.php");
 }
 
@@ -36,7 +35,7 @@ if($li == 1)
             <div id="error-message" style="color:red;"></div>
             <?php echo "<span style='display:none;'>Room_id : <b id='r_id' >" . $_GET['id'] . "</b></span><br>" ?>
             <?php echo "<span style='display:none;'>Hotel_id : <b id='h_id'>" . $_GET['hid'] . "</b></span>" ?>
-           
+
             <div class="form-group">
                 <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" name="full-name" required>
@@ -49,16 +48,16 @@ if($li == 1)
 
             <div class="form-group">
                 <label for="amount">Family Member</label>
-                <input type="number" id="Member" name="amount" value="1" max="7" required>
+                <input type="number" id="Member" name="amount" value="1" max="6" required>
             </div>
 
             <div class="form-group">
                 <label for="amount">Check-in Date</label>
-                <input type="Date" id="check-in" name="check-in" required>
+                <input type="Date" id="check-in" name="check-in" required min="<?= date('Y-m-d', strtotime('+1 day')); ?>">
             </div>
             <div class="form-group">
                 <label for="amount">Check-out Date</label>
-                <input type="Date" id="check-out" name="check-out" onchange="funchange();" required>
+                <input type="Date" id="check-out" name="check-out" onchange="funchange();" required min="<?= date('Y-m-d', strtotime('+1 day')); ?>">
             </div>
 
             <div class="form-group" id="card-element">
@@ -66,14 +65,28 @@ if($li == 1)
             </div>
 
             <div>
-                <?php echo "Price : <b id='price'>" . $_GET['price'] . "</b>₹"; ?>
+                <?php
+                $rdata  = mysqli_query($cnn,"select * from room_list where Room_id ='$r_dg' ");
+                $rfetchdata = mysqli_fetch_array($rdata);
+
+                $ddata  = mysqli_query($cnn, "select * from discount_list where Room_id ='$r_dg' ");
+                if (mysqli_num_rows($ddata) == 0) {
+                    $price =  $rfetchdata['Price'];
+                } else {
+                    $discount  = mysqli_fetch_array($ddata);
+                    $price = $rfetchdata['Price'] - (($rfetchdata['Price'] * $discount['Percentage'])) / 100;
+                }
+
+                echo "Price : <b id='price'>" . $price . "</b>₹";
+
+                ?>
                 <?php echo "<h3 id='day'></h3>"; ?>
             </div>
 
 
             <input id="btns" type="submit" value="Pay Now">
 
-            
+
         </form>
     </div>
 
@@ -99,14 +112,11 @@ if($li == 1)
             if (total <= 0) {
                 document.getElementById("btns").style.display = "none";
                 document.getElementById('error-message').innerHTML = "Invalid Dates.";
-            } 
-            else if(diff_day > 30)
-            {
+            } else if (diff_day > 30) {
                 document.getElementById("btns").style.display = "none";
                 document.getElementById('error-message').innerHTML = "The maximum duration for a hotel stay is 30 days.";
 
-            }
-            else {
+            } else {
                 document.getElementById("price").innerHTML = total;
             }
 
@@ -165,21 +175,20 @@ if($li == 1)
                             h_id: h_id
                         })
                     }).then(response => response.json())
-                  .then(data => {
-                      if (data.success) {
-                          window.location.href = "../index.php"; // Redirect to success page
-                      } else {
-                          document.getElementById('error-message').textContent = data.message; // Show any errors
-                          submitButton.value = "Pay Now";
-                          submitButton.disabled = false;
-                      }
-                  });
-                   
-                   
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = "./paymentsucess.php"; // Redirect to success page
+                        } else {
+                            document.getElementById('error-message').textContent = data.message; // Show any errors
+                            submitButton.value = "Pay Now";
+                            submitButton.disabled = false;
+                        }
+                    });
+
+
             }
         });
     </script>
 
 </body>
-
 </html>

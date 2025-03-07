@@ -33,7 +33,21 @@ body::before {
     background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity (0.5 = 50%) */
     background-blend-mode: darken;
 }
+.for {
+    display: flex;
+    margin: 4px;
+    
+}
+h3{
+    color: white;
+}
 
+.for label {
+    text-decoration: underline;
+    color: #6767ac;
+    cursor: pointer;
+    font-family: initial;
+}
 .loginwraper {
     width: 400px;
     padding: 30px;

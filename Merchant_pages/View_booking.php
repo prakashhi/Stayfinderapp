@@ -39,6 +39,11 @@
                         Add Room
                     </li>
                 </a>
+                <a href="../Merchant_pages/discount_room.php">
+                    <li>
+                        Discount_Room
+                    </li>
+                </a>
             </div>
         </div>
 
@@ -53,8 +58,10 @@
                     <?php
                     session_start();
                     if (isset($_SESSION['mname'])) {
-                        echo   "<span>" . $_SESSION['mname'] . "</span>";
-                        echo  "<a href='../Process/logout.php'>Log out</a>";
+                        echo   "<a href='../Merchant_pages/editprofile.php'><span>" . $_SESSION['mname'] . "</span></a>";
+                        $u = uniqid("Exp_M", true);
+                        $_SESSION['expire_m'] = $u;
+                        echo  "<a href='../Process/logout.php?merchant=$u'>Log out</a>";
                     }
                     ?>
                 </h2>
@@ -112,12 +119,13 @@
                         <table>
                             <thead>
                                 <tr id ='data2'>
-                                    <th>Payment_id</th>
-                                    <th>Room_id</th>
-                                    <th>Customer_id</th>
-                                    <th>Numberof_Memeber</th>
-                                    <th>Checkin_Date</th>
-                                    <th>Checkout_Date</th>
+                                <th>Payment_id</th>
+                                <th>Room_id</th>
+                                <th>Customer_id</th>
+                                <th>Customer_Name</th>
+                                <th>Numberof_Memeber</th>
+                                <th>Checkin_Date</th>
+                                <th>Checkout_Date</th>
                                     <th></th>
                                 </tr>
                             </thead>";
@@ -126,12 +134,13 @@
                         $id = $d['Room_id'];
                         echo "<tbody>
                         <tr>
-                            <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
-                            <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
-                            <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
-                            <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
-                            <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
-                            <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
+                        <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
+                        <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
+                        <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                        <td><span id='data'>Customer_name :</span>" . $d['Customer_name'] . "</td>
+                        <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
+                        <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
+                        <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>
                             <td><a href='Delete_book.php?id=$id' ><button class='delete-btn'>Delete</button></a></td>
                         </tr>
                     </tbody>";
@@ -163,6 +172,7 @@
                                 <th>Payment_id</th>
                                 <th>Room_id</th>
                                 <th>Customer_id</th>
+                                <th>Customer_Name</th>
                                 <th>Numberof_Memeber</th>
                                 <th>Checkin_Date</th>
                                 <th>Checkout_Date</th>
@@ -177,6 +187,7 @@
                         <td><span id='data'>Payment_id :</span>" . $d['Payment_id'] . "</td>
                         <td><span id='data'>Room_id :</span>" . $d['Room_id'] . "</td>
                         <td><span id='data'>Customer_id :</span>" . $d['Customer_id'] . "</td>
+                        <td><span id='data'>Customer_name :</span>" . $d['Customer_name'] . "</td>
                         <td><span id='data'>Numberof_Memeber :</span>" . $d['Numberof_Memeber'] . "</td>
                         <td><span id='data'>Checkin_Date :</span>" . $d['Checkin_Date'] . "</td>
                         <td><span id='data'>Checkout_Date :</span>" . $d['Checkout_Date'] . "</td>

@@ -2,11 +2,12 @@
 .table-container {
   overflow: auto;
   margin: 10px;
-  padding: 30px;
+
   border-radius: 10px;
   animation: fadeIn 1s ease-in-out;
   cursor: pointer;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 45vw;
 }
 
 /* Header */
@@ -33,6 +34,11 @@ td {
   text-align: left;
   border-bottom: 1px solid #ddd;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+thead {
+  top: 0px;
+  position: sticky;
 }
 
 /* Table Header */
@@ -231,14 +237,14 @@ table {
     height: 70vw;
 
   }
-  .table-container
-  {
-    padding: 13px;
-  }
-  .search
 
-  {
+  .table-container {
+    padding: 5px;
+    height: 150vw;
+  }
+
+  .search {
     padding: 15px;
   }
-  
+
 }
