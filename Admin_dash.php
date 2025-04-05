@@ -71,6 +71,7 @@
                             <th>Hotel_Address</th>
                             <th>Hotel_Mobileno</th>
                             <th>Verify Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>";
@@ -90,6 +91,7 @@
                 } else {
                     echo "<td><span id='data'>Verify_status: </span><a id='ver' href=''>Verified</a></td>";
                 }
+                echo"<td><span id='data'></span><a id='ver' href='./admin_p/delete_merchant.php?idm=$i'>Delete</a></td>";
                 echo "</tr>";
             }
             echo "</tbody></table></div>";

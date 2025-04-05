@@ -25,6 +25,8 @@ if (file_exists($imagePath1) && file_exists($imagePath2) && file_exists($imagePa
     unlink($imagePath3);
 }
 
+mysqli_query($cnn,"DELETE FROM `discount_list` WHERE Room_id = '$id'");
+
 $y = mysqli_query($cnn,"DELETE FROM `room_list` where Room_id ='$id' && Booking_status = 'Open' OR Booking_status = 'Canceled' ");
 
 if($y)

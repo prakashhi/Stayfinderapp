@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD']  == 'POST')
     {
         $u = uniqid("D", true);
         mysqli_query($cnn,"INSERT INTO `discount_list` VALUES ('$u','$rid','$dis')");
-        header("location:./discount_room.php");
+        header("location:../merchant_dash.php");
     }
     else{
         mysqli_query($cnn,"UPDATE `discount_list` SET `Percentage`='$dis' WHERE Room_id = '$rid' ");

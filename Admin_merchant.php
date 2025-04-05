@@ -84,17 +84,20 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Mobile_no</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>";
 
                 while ($d = mysqli_fetch_assoc($data)) {
+                    $cid =  $d['Uc_id'];
                     echo "
                     <tr>
                         <td><span id='data'>U_id :</span>" . $d['Uc_id'] . "</td>
                         <td><span id='data'>Username :</span>" . $d['Username'] . "</td>
                         <td><span id='data'>Email :</span>" . $d['Email'] . "</td>
                         <td><span id='data'>Mobile_no :</span>" . $d['Mobile_no'] . "</td>
+                        <td><span id='data'></span><a id='ver' href='./admin_p/cutomer_delete.php?c_id=$cid'>Delete</a></td>
                     </tr>
                 ";
                 }

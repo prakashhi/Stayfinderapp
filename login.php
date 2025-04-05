@@ -21,7 +21,7 @@
             ?>
 
             <div class="option">
-                <span>Consumer</span>
+                <span>Customer</span>
                 <input type="radio" name="op" id="con">
                 <span>Merchant</span>
                 <input type="radio" name="op" id="mer">

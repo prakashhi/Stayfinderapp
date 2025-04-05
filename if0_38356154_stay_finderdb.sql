@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql303.infinityfree.com
--- Generation Time: Mar 07, 2025 at 07:53 AM
+-- Generation Time: Apr 05, 2025 at 11:17 AM
 -- Server version: 10.6.19-MariaDB
 -- PHP Version: 7.2.22
 
@@ -86,12 +86,13 @@ CREATE TABLE `c_register` (
 --
 
 INSERT INTO `c_register` (`Uc_id`, `Username`, `Email`, `Mobile_no`, `Password`) VALUES
-('C67c02be73', 'prakash', 'prakash398prajapati@gmail.com', '1234567890', '$2y$10$rDNbgcygfOWswLoxRCSd8uXMtTQBdWR1wrnu4i.tPWP2Tn212tJ/O'),
+('C67c02be73', 'prakash', 'prakash398prajapati@gmail.com', '1234567890', '$2y$10$lIx4shfWQnaPkGxNTY2HwukzUGwvsFJrZdZAwXvVQ4wsgK1HDUsBG'),
 ('C67c02bfde', 'Nadeem26', 'makwananadeem0@gmail.com', '8849742758', '$2y$10$LJEOEPNHUV8tAj5KEpgx4eXl5bmX9oPXi.XSK3G.Oksynwqc6VCjq'),
 ('C67c02c2ba', 'meghal', 'meghal7310@gmail.com', '1234567890', '$2y$10$9iLw2Te5dosBuPylhXPXNOXr63JD/vI6ifNhi4T4Oi.Gx77AVRHGq'),
 ('C67c02c53b', 'Om', 'kadiaom30@gmail.com', '1234567890', '$2y$10$DUjKNzcORwBaoXABS9PNtO0BKZ529z5o1lk2wqyoagL2UTLptWLC2'),
 ('C67c15623c', 'Sohel', 'sohelkhan133@gmail.com', '9714501908', '$2y$10$OcYYzcCfP.5TyoH4ve4D9.O9LOXfYWAS1.3dIW7cthdotsd4jerHS'),
-('C67c3f6e50', 'Zafar', 'qansarizafar8866@gmail.com', '8866365214', '$2y$10$4r9xUTwSvaoZ17iw9KDg1O.3zDceK8W5mqfE9AdauOVIeKpnxehsy');
+('C67c3f6e50', 'Zafar', 'qansarizafar8866@gmail.com', '8866365214', '$2y$10$4r9xUTwSvaoZ17iw9KDg1O.3zDceK8W5mqfE9AdauOVIeKpnxehsy'),
+('C67d7d5f52', 'sohel123', 'sohilpathan9252@gmail.com', '9714501308', '$2y$10$pJwvroVXSQ0I36p0ZEfQqOyukc/CWPWQy5Dg.YyEv3ZpjQU2M6s2O');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,8 @@ CREATE TABLE `discount_list` (
 --
 
 INSERT INTO `discount_list` (`Discount_id`, `Room_id`, `Percentage`) VALUES
-('D67c458735a63d6.28017806', 'R67c439add', 20);
+('D67c458735a63d6.28017806', 'R67c439add', 20),
+('D67ceb20193e697.23338441', 'R67c034e5a', 10);
 
 -- --------------------------------------------------------
 
@@ -157,14 +159,14 @@ INSERT INTO `m_register` (`Um_id`, `Username`, `Email`, `Password`, `Hotel_id`, 
 ('M67c29f680', 'Omk5', 'kadiaom30@gmail.com', '$2y$10$qAT.pymtA0uPtWBMbxjuVOSCEwWokH0RetVMtKkWUznsbCxYy/zx2', 'H67c29f681', 'Regenta Harimangla Hotel', 'BC Circle, Old NH 8, Bholav ,  BharÅ«ch,Gujarat', '8799062611', 'HDFC', '789456123456789', '98889745612', 'Verified'),
 ('M67c2a5742', 'Omk6', 'kadiaom30@gmail.com', '$2y$10$4he7VH0LdEPlwKRE1yaH2erTzyBgie.ECOiDwEcMCYJs2Cjt5aUHK', 'H67c2a5744', 'The Fern Bhavnagar', 'Iscon Club, Nr. Moti Talav, Bhavnagar 364001, Gujarat', '8799062611', 'HDFC', '789456123456789', '98889745612', 'Verified'),
 ('M67c2a856c', 'Omk7', 'kadiaom30@gmail.com', '$2y$10$e.0T2JohTBC9Be1arDvu3uyL4pr4FqGZxxleaGWGu9E.jUkI7ILMq', 'H67c2a856d', 'Hotel Nakul Residency', 'Near Sardar Patel Circle, Botad 364710, Gujarat', '8799062611', 'SBI', '789456123456789', '98889745612', 'Verified'),
-('M67c57172d', 'sohel', 'pathansohel9252@gmail.com', '$2y$10$yrZNjHra/Dr2YozGnDl/Q..4GG0g8TsSQpy3X2/5YQKTwN5E2ddNC', 'H67c57172e', 'Hotel Silver Residency', 'Opp. R.T.O OFFICE, Gurukrupa Society, Chhota Udepur - 391165', '1234567890', 'BOI', '210022002300', 'ABCD1200121', 'Not Verify'),
-('M67c572e23', 'sohel1', 'pathansohel9252@gmail.com', '$2y$10$zt2RwT5CP/U94pf0paTaxeJmOhNYvp1OIX/TroNCsqjTlAOSdIn/G', 'H67c572e24', 'Hotel Shree Ram', 'Near Bus Stand, Dahod, Gujarat', '1234567890', 'ICICI', '210022002300', 'ABCD1200121', 'Not Verify'),
-('M67c573d8a', 'sohel2', 'pathansohel9252@gmail.com', '$2y$10$hmFsD1/8kE/wnyVZL11U4evvUHfpFEnAGsk7hTyyMXiZ2NJWAO3te', 'H67c573d8c', 'The Deltin', ' Nani Daman, Daman, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Not Verify'),
-('M67c574f86', 'sohel3', 'pathansohel9252@gmail.com', '$2y$10$8Z0HvbiKU295px7znvwy8OeC2iKrpY5DmxfqMFSXJao7R5ajf8svC', 'H67c574f87', 'Vananchal Resort', 'Near Saputara, Dang, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Not Verify'),
-('M67c576257', 'sohel4', 'pathansohel9252@gmail.com', '$2y$10$01jHtnowsNr2jrPaAf4g4.JkdlzFjcUjYhioM5GbJdohWxz9mv35C', 'H67c576259', 'The Fern Gir Forest Resort', ' Sasan Gir, Gir Somnath, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Not Verify'),
-('M67c57703d', 'sohel5', 'pathansohel9252@gmail.com', '$2y$10$urj02Wfsm75.pvDVqCa.Te6VsAbYE0Vvwem0FqdpbggnJlNOF4HCu', 'H67c57703e', 'Hotel Aram', 'Near Patel Circle, Jamnagar, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Not Verify'),
+('M67c57172d', 'sohel', 'pathansohel9252@gmail.com', '$2y$10$yrZNjHra/Dr2YozGnDl/Q..4GG0g8TsSQpy3X2/5YQKTwN5E2ddNC', 'H67c57172e', 'Hotel Silver Residency', 'Opp. R.T.O OFFICE, Gurukrupa Society, Chhota Udepur - 391165', '1234567890', 'BOI', '210022002300', 'ABCD1200121', 'Verified'),
+('M67c572e23', 'sohel1', 'pathansohel9252@gmail.com', '$2y$10$zt2RwT5CP/U94pf0paTaxeJmOhNYvp1OIX/TroNCsqjTlAOSdIn/G', 'H67c572e24', 'Hotel Shree Ram', 'Near Bus Stand, Dahod, Gujarat', '1234567890', 'ICICI', '210022002300', 'ABCD1200121', 'Verified'),
+('M67c573d8a', 'sohel2', 'pathansohel9252@gmail.com', '$2y$10$hmFsD1/8kE/wnyVZL11U4evvUHfpFEnAGsk7hTyyMXiZ2NJWAO3te', 'H67c573d8c', 'The Deltin', ' Nani Daman, Daman, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Verified'),
+('M67c574f86', 'sohel3', 'pathansohel9252@gmail.com', '$2y$10$8Z0HvbiKU295px7znvwy8OeC2iKrpY5DmxfqMFSXJao7R5ajf8svC', 'H67c574f87', 'Vananchal Resort', 'Near Saputara, Dang, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Verified'),
+('M67c576257', 'sohel4', 'pathansohel9252@gmail.com', '$2y$10$01jHtnowsNr2jrPaAf4g4.JkdlzFjcUjYhioM5GbJdohWxz9mv35C', 'H67c576259', 'The Fern Gir Forest Resort', ' Sasan Gir, Gir Somnath, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Verified'),
+('M67c57703d', 'sohel5', 'pathansohel9252@gmail.com', '$2y$10$urj02Wfsm75.pvDVqCa.Te6VsAbYE0Vvwem0FqdpbggnJlNOF4HCu', 'H67c57703e', 'Hotel Aram', 'Near Patel Circle, Jamnagar, Gujarat', '1234567890', 'HDFC', '210022002300', 'ABCD1200121', 'Verified'),
 ('M67c6f7ad9', 'prakash4', 'prakash398prajapati@gmail.com', '$2y$10$9O2mucfGlB2wa7PNYig9DO7geboO/tWTDVBgQYNl8ucA/5gTi2rWa', 'H67c6f7ada', 'Hotel Mahisagar', 'Near S.T. Bus Stand, Godhra Road, Lunawada, Mahisagar District, Gujarat - 389230, India', '1234567890', 'SBI', '012345678952', 'ADDFFGCFGGH', 'Verified'),
-('M67cae679a', 'prakash5', 'prakash398prajapati@gmail.com', '$2y$10$eOqTWi7JsXkYG0VYIaBKcOiolKP59TfOcFzU1.XwyrymF2xxvqT4e', 'H67cae679b', 'Hotel Royal Meadows', '123, Shankar Bazar Road, Mehsana-384002, Gujarat, India', '1234567890', 'HDFC', '0123456789523', 'GJHJHGCD455', 'Not Verify');
+('M67cae679a', 'prakash5', 'prakash398prajapati@gmail.com', '$2y$10$eOqTWi7JsXkYG0VYIaBKcOiolKP59TfOcFzU1.XwyrymF2xxvqT4e', 'H67cae679b', 'Hotel Royal Meadows', '123, Shankar Bazar Road, Mehsana-384002, Gujarat, India', '1234567890', 'HDFC', '0123456789523', 'GJHJHGCD455', 'Verified');
 
 -- --------------------------------------------------------
 

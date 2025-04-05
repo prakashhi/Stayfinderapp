@@ -19,7 +19,7 @@
 
     <nav>
       <div class="log">
-        <img src="Images/Stay Finder-logos.webp" alt="" width="40px" style="border-radius: 5px;">
+        <img loading='lazy' src="Images/Stay Finder-logos.webp" alt="" width="40px" style="border-radius: 5px;">
         <b id='sty'>Stay Finder</b>
       </div>
       <div class="m">
@@ -77,7 +77,7 @@
                echo "<a href='./Customer_pages/carddata.php?id=$id'>
                <div class='con'>
                <div class='image-container'>
-             <img src='./Hotel_img/$imgurl' alt='Room Image'>
+             <img loading='lazy' src='./Hotel_img/$imgurl' alt='Room Image'>
            </div>
                  <div class='datcon'>
                    <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
@@ -100,7 +100,7 @@
               echo "<a href='./Customer_pages/carddata.php?id=$id'>
               <div class='con'>
               <div class='image-container'>
-            <img src='./Hotel_img/$imgurl' alt='Room Image'>
+            <img loading='lazy' src='./Hotel_img/$imgurl' alt='Room Image'>
           </div>
                 <div class='datcon'>
                   <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
@@ -155,7 +155,7 @@
                echo "<a href='./Customer_pages/carddata.php?id=$id'>
                <div class='con'>
                <div class='image-container'>
-             <img src='./Hotel_img/$imgurl' alt='Room Image'>
+             <img loading='lazy' src='./Hotel_img/$imgurl' alt='Room Image'>
            </div>
                  <div class='datcon'>
                    <span class='h_name'>" . $ho['Hotel_Name'] . "</span>
@@ -163,6 +163,7 @@
                    <span class='Room_type'>" . $dv['Room_type'] . "</span>
                    <span class='h_price'>" . $dv['Room_capacity'] . "</span>
                    <span class='h_price' style='text-decoration:line-through;color:#757575;font-size:14px;'>₹ " . $dv['Price'] . "</span>
+                   <span class='h_price' style='color:#757575;font-size:18px;'> " . $disdata['Percentage'] . " % Off</span>
                    <span class='h_price'>₹ " . $per . "</span>
                    
                  </div>
@@ -176,7 +177,7 @@
               echo "<a href='./Customer_pages/carddata.php?id=$id'>
               <div class='con'>
               <div class='image-container'>
-            <img src='./Hotel_img/$imgurl' alt='Room Image'>
+            <img loading='lazy' src='./Hotel_img/$imgurl' alt='Room Image'>
           </div>
                 <div class='datcon'>
                   <span class='h_name'>" . $ho['Hotel_Name'] . "</span>

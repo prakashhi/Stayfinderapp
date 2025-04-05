@@ -83,13 +83,13 @@ if ($li == 1) {
     <div class='slider-container'>
         <div class='slider'>
             <div class='slide'>
-                <img src='../Hotel_img/$imgurl1'>
+                <img loading='lazy' src='../Hotel_img/$imgurl1'>
             </div>
             <div class='slide'>
-                <img src='../Hotel_img/$imgurl2'>
+                <img loading='lazy' src='../Hotel_img/$imgurl2'>
             </div>
             <div class='slide'>
-                <img src='../Hotel_img/$imgurl3'>
+                <img loading='lazy' src='../Hotel_img/$imgurl3'>
             </div>
         </div>
         <div class='navigation-dots'></div>
