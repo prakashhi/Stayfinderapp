@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql303.infinityfree.com
--- Generation Time: Apr 05, 2025 at 11:17 AM
--- Server version: 10.6.19-MariaDB
--- PHP Version: 7.2.22
+-- Host: 127.0.0.1
+-- Generation Time: Apr 06, 2025 at 05:46 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `if0_38356154_stay_finderdb`
+-- Database: `stay_finderdb`
 --
 
 -- --------------------------------------------------------
@@ -56,16 +55,16 @@ CREATE TABLE `booking_list` (
   `Checkin_Date` varchar(20) NOT NULL,
   `Checkout_Date` varchar(20) NOT NULL,
   `Amount` int(11) NOT NULL,
-  `Transaction_Date` varchar(30) NOT NULL
+  `Transaction_Date` varchar(30) NOT NULL,
+  `Status` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking_list`
 --
 
-INSERT INTO `booking_list` (`Payment_id`, `Room_id`, `Customer_id`, `Customer_name`, `Hotel_id`, `Numberof_Memeber`, `Checkin_Date`, `Checkout_Date`, `Amount`, `Transaction_Date`) VALUES
-('Pay67c3f7906a7302.34', 'R67c02ee27', 'C67c3f6e50', 'Ansari Zafar ', 'H67c02e4ee', 2, '2025-03-04', '2025-03-05', 3600, '2025-03-02 01:15:46'),
-('Pay67ca7e2c289be7.61', 'R67c031829', 'C67c02bfde', 'Nadeem', 'H67c030a06', 1, '2025-03-08', '2025-03-10', 50000, '2025-03-07 00:03:40');
+INSERT INTO `booking_list` (`Payment_id`, `Room_id`, `Customer_id`, `Customer_name`, `Hotel_id`, `Numberof_Memeber`, `Checkin_Date`, `Checkout_Date`, `Amount`, `Transaction_Date`, `Status`) VALUES
+('Pay67f29f1911fb09.48', 'R67c031431', 'C67c02be73', 'Prakash Prajapti', 'H67c030943', 5, '2025-04-08', '2025-04-10', 10000, '2025-04-06 17:34:55', 'Canceled');
 
 -- --------------------------------------------------------
 
@@ -112,7 +111,9 @@ CREATE TABLE `discount_list` (
 
 INSERT INTO `discount_list` (`Discount_id`, `Room_id`, `Percentage`) VALUES
 ('D67c458735a63d6.28017806', 'R67c439add', 20),
-('D67ceb20193e697.23338441', 'R67c034e5a', 10);
+('D67ceb20193e697.23338441', 'R67c034e5a', 10),
+('D67f29f9455dd36.32967303', 'R67c02ee27', 12),
+('D67f2a0a362aea0.21447913', 'R67c02f88c', 12);
 
 -- --------------------------------------------------------
 
@@ -194,7 +195,7 @@ CREATE TABLE `room_list` (
 INSERT INTO `room_list` (`Room_id`, `Hotel_id`, `Room_type`, `AC / NOAC`, `Price`, `Room_capacity`, `Booking_status`, `Room_img1`, `Room_img2`, `Room_img3`) VALUES
 ('R67c02ee27', 'H67c02e4ee', 'Deluxe Room', 'AC', 3600, 'Twin Room', 'Booked', 'Img67c02ee26f7f00.80625885.avif', 'Img67c02ee26f7fd6.75426416.avif', 'Img67c02ee26f7ff1.77769439.webp'),
 ('R67c02f88c', 'H67c02e4ee', 'Standard Room', 'Non-Ac', 900, 'Twin Room', 'Open', 'Img67c02f88c88938.74303649.avif', 'Img67c02f88c889d7.84448837.avif', 'Img67c02f88c889f4.94205487.avif'),
-('R67c031431', 'H67c030943', 'Family Room', 'AC', 5000, 'Family Room', 'Open', 'Img67c0314311f540.67019589.avif', 'Img67c0314311f5f7.69873070.avif', 'Img67c0314311f626.47123059.jpg'),
+('R67c031431', 'H67c030943', 'Family Room', 'AC', 5000, 'Family Room', 'Canceled', 'Img67c0314311f540.67019589.avif', 'Img67c0314311f5f7.69873070.avif', 'Img67c0314311f626.47123059.jpg'),
 ('R67c031829', 'H67c030a06', 'Deluxe Room', 'AC', 25000, 'Quard Room', 'Booked', 'Img67c031829c46d3.91114246.jfif', 'Img67c031829c4796.36839876.webp', 'Img67c031829c47a9.18614666.jfif'),
 ('R67c031e5b', 'H67c030943', 'Suite', 'AC', 3500, 'Twin Room', 'Open', 'Img67c031e5b0d4f1.56227099.avif', 'Img67c031e5b0d5d3.36169315.avif', 'Img67c031e5b0d612.95245254.avif'),
 ('R67c03271d', 'H67c02ce7a', 'Standard Room', 'AC', 1000, 'Triple Room', 'Open', 'Img67c03271d61544.72515747.jpg', 'Img67c03271d61673.88501835.jpg', 'Img67c03271d616b6.50325992.jpg'),
