@@ -125,7 +125,7 @@
                     
                     if($li>=1)
                     {
-                        echo "<td><span id='data'>Room_capacity :</span>" . $discount['Percentage'] . " % Off</td>";
+                        echo "<td><span id='data'>Room_Discount :</span>" . $discount['Percentage'] . " % Off</td>";
                     }
                     
                     
